@@ -1,0 +1,56 @@
+// Breakpoint values
+$mobile: 480px;
+$tablet: 768px;
+$laptop: 1025px;
+$desktop: 1200px;
+
+// Media query mixins
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile + 1px}) and (max-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: #{$tablet + 1px}) and (max-width: $laptop) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$laptop + 1px}) {
+    @content;
+  }
+}
+
+@media (width <= 600px) {      /* phone */
+  :root { --scale: .9; }
+}
+@media (600px < width <= 1024px) { /* tablet */
+  :root { --scale: .95; }
+}
+@media (1024px < width <= 1440px) { /* monitor */
+  :root { --scale: 1; }
+}
+@media (width > 1440px) {      /* large monitor */
+  :root { --scale: 1.1; }
+}
+
+/* Respect user motion settings */
+@media (prefers-reduced-motion: reduce) {
+  :root { 
+    --dur-1: 0ms; 
+    --dur-2: 0ms; 
+    --dur-3: 0ms; 
+  }
+  * { 
+    animation-duration: 0ms !important; 
+    transition-duration: 0ms !important; 
+  }
+}

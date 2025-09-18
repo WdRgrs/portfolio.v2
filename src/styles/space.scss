@@ -1,0 +1,26 @@
+@layer base {
+  :root {
+  /* Spacing with a master multiplier that media.css will adjust */
+  --space-0: 0;
+  --space-1: calc(0.125rem * var(--scale));
+  --space-2: calc(0.25rem * var(--scale));
+  --space-3: calc(0.5rem * var(--scale));
+  --space-4: calc(0.75rem * var(--scale));
+  --space-5: calc(1rem * var(--scale));
+  --space-6: calc(1.5rem * var(--scale));
+  --space-8: calc(2rem * var(--scale));
+
+  // Spacing
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  --space-neg-xs: -4px;
+  --space-neg-sm: -8px;
+  --space-neg-md: -16px;
+  --space-neg-lg: -24px;
+  --space-neg-xl: -32px;
+ }
+}

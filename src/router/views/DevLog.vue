@@ -1,5 +1,5 @@
 <template>
-  button
+Devlog
 </template>
 
 <script setup lang="ts">

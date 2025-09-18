@@ -1,8 +1,0 @@
-<template>
-Nav Bar
-</template>
-
-<script setup lang="ts">
-</script>
-
-<style scoped></style>

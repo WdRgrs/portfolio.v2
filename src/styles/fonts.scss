@@ -1,0 +1,69 @@
+@layer base {
+  :root {
+    // Font Fam
+    --font-cinzel:"Cinzel Decorative", serif;
+    --font-fredericka: "Fredericka the Great", serif;
+    --font-barlow: "Barlow", sans-serif;
+    --font-fira: "Fira Mono", monospace;
+    --font-poppins: "Poppins", sans-serif;
+    --font-sans: 'Work Sans', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+    --font-src-sans: 'Source Sans 3', sans-serif;
+    --font-jetbrains: 'JetBrains Mono', monospace;
+
+    // Semantic aliases
+    --font-title: var(--font-poppins);
+    --font-body-1: var(--font-inter);
+    --font-body-2:  var(--font-sans);
+    --font-body-3:  var(--font-src-sans);
+    --font-mono:  var(--font-jetbrains);
+
+    --font-title: var(--font-cinzel); /* Decorative, elegant serif for main headings */
+    --font-subtitle: var(--font-fredericka); /* Bold, artistic serif for subheadings */
+
+    --font-body: var(--font-inter); /* Clean, modern sans-serif for readable body text */
+    --font-alt-body: var(--font-poppins);   /* Optional variation */
+    --font-ui: var(--font-sans);            /* Nav, buttons, labels */
+    
+    --font-info: var(--font-src-sans);      /* Small supporting text */
+    --font-info: var(--font-jetbrains); /* Monospace for code snippets or technical details */
+
+    --font-accent: var(--font-poppins); /* Stylish sans-serif for emphasis or highlights */
+    --font-accent: var(--font-barlow);      /* Taglines, callouts */
+    
+    --font-secondary: var(--font-barlow); /* Versatile sans-serif for secondary text or captions */
+    --font-ui: var(--font-sans); /* Functional sans-serif for UI elements like buttons */
+    --font-detail: var(--font-src-sans); /* Professional sans-serif for fine print or details */
+    --font-code: var(--font-fira); /* Monospace for code blocks or terminal-style text */
+    --font-dev: var(--font-jetbrains);      /* Dev log or technical */
+
+    // Font Weight
+    --font-light: 300;
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+
+    // Font Size
+    --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.8125rem);     // 12px → 13px
+    --text-sm: clamp(0.875rem, 0.825rem + 0.25vw, 0.9375rem);  // 14px → 15px
+    --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.0625rem);     // 16px → 17px
+    --text-lg: clamp(1.125rem, 1.05rem + 0.375vw, 1.25rem);    // 18px → 20px
+    --text-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);        // 20px → 24px
+    --text-2xl: clamp(1.5rem, 1.35rem + 0.75vw, 1.875rem);     // 24px → 30px
+    --text-3xl: clamp(1.875rem, 1.675rem + 1vw, 2.25rem);      // 30px → 36px
+    --text-4xl: clamp(2.25rem, 2rem + 1.25vw, 3rem);           // 36px → 48px
+    --text-5xl: clamp(3rem, 2.5rem + 2.5vw, 4rem);             // 48px → 64px
+    --text-6xl: clamp(3.75rem, 3rem + 3.75vw, 5rem);           // 60px → 80px
+
+    // Line heights
+    --leading-none: 1;
+    --leading-tight: 1.25;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 1.75;
+    --leading-body: 1.625;
+  }
+}
