@@ -1,34 +1,25 @@
 <template>
   <nav class="navbar" :class="{ 'navbar--mobile-open': isMobileMenuOpen }">
     <div class="navbar__container">
-      <!-- Logo/Brand -->
-      <router-link to="/" class="navbar__brand">
-        <span class="navbar__brand-text">
-          <strong>W</strong>ade 
-          <strong>R</strong>ogers
+      <!-- Logo/name -->
+      <router-link to="/" class="navbar__name">
+        <span class="navbar__name-text">
+          <span class="navbar__name-initial">W</span>ade
+          <span class="navbar__name-initial">R</span>ogers
         </span>
       </router-link>
 
       <!-- Desktop Navigation -->
       <div class="navbar__nav">
-        <router-link 
-          v-for="link in navLinks" 
-          :key="link.path"
-          :to="link.path"
-          class="navbar__link"
-          active-class="navbar__link--active"
-        >
+        <router-link v-for="link in navLinks" :key="link.path" :to="link.path" class="navbar__link"
+          active-class="navbar__link--active">
           {{ link.label }}
         </router-link>
       </div>
 
       <!-- Mobile Menu Toggle -->
-      <button 
-        class="navbar__toggle"
-        @click="toggleMobileMenu"
-        :aria-expanded="isMobileMenuOpen"
-        aria-label="Toggle navigation menu"
-      >
+      <button class="navbar__toggle" @click="toggleMobileMenu" :aria-expanded="isMobileMenuOpen"
+        aria-label="Toggle navigation menu">
         <span class="navbar__toggle-line"></span>
         <span class="navbar__toggle-line"></span>
         <span class="navbar__toggle-line"></span>
@@ -37,19 +28,11 @@
 
     <!-- Mobile Navigation -->
     <div class="navbar__mobile" v-show="isMobileMenuOpen">
-      <router-link 
-        v-for="link in navLinks" 
-        :key="`mobile-${link.path}`"
-        :to="link.path"
-        class="navbar__mobile-link"
-        active-class="navbar__mobile-link--active"
-        @click="closeMobileMenu"
-      >
+      <router-link v-for="link in navLinks" :key="`mobile-${link.path}`" :to="link.path" class="navbar__mobile-link"
+        active-class="navbar__mobile-link--active" @click="closeMobileMenu">
         {{ link.label }}
       </router-link>
     </div>
-    <div></div>
-    
   </nav>
 </template>
 
@@ -90,53 +73,34 @@ const closeMobileMenu = () => {
 
   &__container {
     max-width: 1800px;
-    margin: 0 auto;
-    padding: var(--space-4) var(--space-5) var(--space-3);
+    height: var(--nav-bar-height);
+    margin: auto;
+    padding: var(--space-5);
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  &__brand {
+  &__name {
     text-decoration: none;
-    font-weight: var(--font-medium);
+
+    &-initial {
+      font-size: var(--text-2xl);
+    }
 
     &-text {
-      font-family: var(--font-title);
-      font-size: var(--text-2xl);
+      font-family: var(--font-cinzel);
+      font-size: var(--text-lg);
       color: var(--color-secondary);
       -webkit-text-stroke-width: .05rem;
       -webkit-text-stroke-color: var(--color-text);
-
-      @include mobile {
-        font-size: var(--text-lg);
-      }
-      @include tablet {
-        font-size: var(--text-lg);
-      }
-      @include laptop {
-        font-size: var(--text-xl);
-      }
-    }
-    & strong {
-      font-size: var(--text-4xl);
-
-      @include mobile {
-        font-size: var(--text-2xl);
-      }
-      @include tablet {
-        font-size: var(--text-2xl);
-      }
-      @include laptop {
-        font-size: var(--text-3xl);
-      }
     }
   }
 
   &__nav {
     display: flex;
     gap: var(--space-6);
-    
+
     @include mobile {
       display: none;
     }
@@ -150,16 +114,16 @@ const closeMobileMenu = () => {
     padding: var(--space-2) var(--space-3);
     border-radius: var(--radius-sm);
     transition: all 0.2s ease;
-    
+
     @include tablet {
       padding: var(--space-1);
     }
-    
+
     &:hover {
       color: var(--color-primary);
       background: var(--color-surface-1);
     }
-    
+
     &--active {
       color: var(--color-primary);
       background: var(--color-surface-2);
@@ -174,11 +138,11 @@ const closeMobileMenu = () => {
     border: none;
     padding: var(--space-2);
     cursor: pointer;
-    
+
     @include mobile {
       display: flex;
     }
-    
+
     &-line {
       width: 20px;
       height: 2px;
@@ -191,9 +155,11 @@ const closeMobileMenu = () => {
     &:nth-child(1) {
       transform: rotate(45deg) translate(2.5px, 2.5px);
     }
+
     &:nth-child(2) {
       opacity: 0;
     }
+
     &:nth-child(3) {
       transform: rotate(-45deg) translate(4.5px, -4.5px);
     }
@@ -201,7 +167,7 @@ const closeMobileMenu = () => {
 
   &__mobile {
     display: none;
-    
+
     @include mobile {
       display: block;
       padding: var(--space-5);
@@ -220,12 +186,12 @@ const closeMobileMenu = () => {
     border-radius: var(--radius-sm);
     margin-bottom: var(--space-2);
     transition: all 0.2s ease;
-    
+
     &:hover {
       color: var(--color-primary);
       background: var(--color-surface-2);
     }
-    
+
     &--active {
       color: var(--color-primary);
       background: var(--color-surface-3);

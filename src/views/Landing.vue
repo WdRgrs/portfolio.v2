@@ -1,7 +1,6 @@
 <template>
   <div class="landing">
     <!-- Background effects -->
-    <MediaQuery />
 
     <div class="landing__container">
       <!-- Title Section -->
@@ -41,19 +40,22 @@
 </template>
 
 <script setup lang="ts">
-import MediaQuery from '@/components/test/MediaQuery.vue'
 </script>
 
 <style scoped lang="scss">
 .landing {
-  position: relative;
+  position: relative; // maybe fixed
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - var(--nav-bar-height));
   overflow: hidden;
 
+  @include mobile {
+    margin-top: calc(var(--nav-bar-height) * -1);
+  }
+
   background: radial-gradient(ellipse at bottom,
-      var(--color-surface-3) -80%,
-      var(--color-bg) 60%);
+    var(--color-surface-3) -80%,
+    var(--color-bg) 60%);
 
   &__container {
     display: flex;
@@ -182,16 +184,16 @@ import MediaQuery from '@/components/test/MediaQuery.vue'
     color: var(--color-accent);
     text-decoration: none;
     transition: all 0.35s ease;
-    
+
     @include mobile {
       margin-bottom: 0.5rem;
       font-size: calc(var(--text-landing) * .5);
     }
-    
+
     @include tablet {
       font-size: calc(var(--text-landing) * .45);
     }
-  
+
     &:hover {
       color: var(--color-secondary);
     }
