@@ -57,6 +57,11 @@
     --text-5xl: clamp(3rem, 2.5rem + 2.5vw, 4rem);             // 48px → 64px
     --text-6xl: clamp(3.75rem, 3rem + 3.75vw, 5rem);           // 60px → 80px
 
+    // Landing size
+    --text-landing: 7rem;
+    --text-landing-md: 5rem;
+    --text-landing-sm: 3.5rem;
+
     // Line heights
     --leading-none: 1;
     --leading-tight: 1.25;
