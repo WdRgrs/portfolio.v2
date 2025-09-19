@@ -1,3 +1,5 @@
+@use "./media.scss" as *;
+
 @layer base {
   :root {
     // Font Fam
@@ -56,6 +58,18 @@
     --text-4xl: clamp(2.25rem, 2rem + 1.25vw, 3rem);           // 36px → 48px
     --text-5xl: clamp(3rem, 2.5rem + 2.5vw, 4rem);             // 48px → 64px
     --text-6xl: clamp(3.75rem, 3rem + 3.75vw, 5rem);           // 60px → 80px
+
+    // Landing size
+    --text-landing: 7rem;
+    @include mobile {
+      --text-landing: 3.5rem;
+    }
+    @include tablet {
+      --text-landing: 3.5rem;
+    }
+    @include laptop {
+      --text-landing: 5rem;
+    }
 
     // Line heights
     --leading-none: 1;
