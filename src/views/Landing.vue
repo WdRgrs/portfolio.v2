@@ -18,21 +18,12 @@
 
         <!-- Job titles navigation -->
         <nav class="landing__jobs">
-          <router-link to="/software" class="landing__job-link">
-            Developer
-          </router-link>
-
-          <span class="landing__divider"></span>
-
-          <router-link to="/welding" class="landing__job-link">
-            Welder
-          </router-link>
-
-          <span class="landing__divider"></span>
-
-          <router-link to="/photography" class="landing__job-link">
-            Photographer
-          </router-link>
+          <template v-for="(link, idx) in navLinks" :key="link.path" >
+            <span v-if="idx > 0" class="landing__divider"></span>
+            <router-link  :to="link.path" class="landing__job-link">
+              {{ link.label }}
+            </router-link>
+          </template>
         </nav>
       </div>
     </div>
@@ -40,6 +31,10 @@
 </template>
 
 <script setup lang="ts">
+import { SITE_LINKS } from '@/constants';
+
+
+const navLinks = SITE_LINKS.filter(ln => ln.main)
 </script>
 
 <style scoped lang="scss">

@@ -1,6 +1,13 @@
-// todo VERIFY THESE LINKS - very outdated
-
 export const LINKS = {
+  SITE: {
+    LANDING: '/',
+    DEVELOPMENT: '/software',
+    WELDING: '/welding',
+    PHOTOGRAPHY: '/photography',
+    DEV_LOG: '/dev-log',
+    RESUME: '/resume',
+    NOT_FOUND: 'no',
+  },
   SOCIAL: {
     LINKEDIN: 'https://www.linkedin.com/in/WdRgrs/',
     GITHUB: 'https://github.com/WdRgrs',
@@ -9,12 +16,10 @@ export const LINKS = {
   },
   COMPANIES: {
     NEXTIQ: 'https://www.nextiq.com/',
-    NEXTIQ_CERT: 'https://www.nextiq.com/how-to-get-certified',
-    DEVMOUNTAIN: 'https://devmountain.com/',
+    DEVMOUNTAIN: 'https://strayer.smartcatalogiq.com/en/2023-2024/catalog/nondegree-noncredit-offerings/devmountain-offerings',
   },
   PROJECTS: {
     DEVMOUNTAIN_DEMO: 'https://www.youtube.com/watch?v=TyiiZmUncbA',
-    DEVMOUNTAIN_REPO: 'https://github.com/WdRgrs/Foundations-Project',
     MELODIENT_APP: 'https://melodient.herokuapp.com',
     MELODIENT_VIDEO: 'https://youtu.be/Y8CmFLRZMSY',
     MELODIENT_REPO: 'https://github.com/WdRgrs/Melodient',
@@ -24,6 +29,23 @@ export const LINKS = {
     PORTFOLIO: 'https://waderogers.dev',
   },
 } as const;
+
+export type LocalLink = Readonly<{
+  key: string
+  label: string
+  path: string
+  main?: boolean
+}>;
+
+export const SITE_LINKS: ReadonlyArray<LocalLink> = [
+  { key: 'landing', label: 'Landing', path: LINKS.SITE.LANDING },
+  { key: 'developer', label: 'Developer', path: LINKS.SITE.DEVELOPMENT, main: true },
+  { key: 'welding', label: 'Welder', path: LINKS.SITE.WELDING, main: true },
+  { key: 'photography', label: 'Photographer', path: LINKS.SITE.PHOTOGRAPHY, main: true },
+  { key: 'dev_log', label: 'Dev Log', path: LINKS.SITE.DEV_LOG },
+  { key: 'resume', label: 'Resume', path: LINKS.SITE.RESUME },
+  { key: 'not_found', label: 'Not Found', path: LINKS.SITE.NOT_FOUND },
+] as const;
 
 export type ExternalLink = Readonly<{
   key: string;
@@ -44,3 +66,5 @@ export const PROJECT_LINKS: ReadonlyArray<ExternalLink> = [
   { key: 'melodient', label: 'Melodient', href: LINKS.PROJECTS.MELODIENT_APP, icon: 'external' },
   { key: 'melodient-repo', label: 'Melodient Repo', href: LINKS.PROJECTS.MELODIENT_REPO, icon: 'github' },
 ] as const;
+
+

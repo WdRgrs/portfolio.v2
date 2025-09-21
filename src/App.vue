@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Transition name="slide-down">
+    <Transition name="slide-up">
       <header class="app__navbar" :inert="isLanding || undefined">
         <NavBar v-show="!isLanding" />
       </header>
@@ -71,7 +71,7 @@ const isLanding = computed(() => {
   .slide-up-leave-active,
   .slide-down-enter-active,
   .slide-down-leave-active {
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
   }
 
   .fade-enter-from,
@@ -82,13 +82,13 @@ const isLanding = computed(() => {
   .slide-up-enter-from,
   .slide-up-leave-to {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(-100%);
   }
 
   .slide-down-enter-from,
   .slide-down-leave-to {
     opacity: 0;
-    transform: translateY(-100%);
+    transform: translateY(100%);
   }
 }
 </style>

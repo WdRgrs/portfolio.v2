@@ -4,39 +4,30 @@
       <div class="not-found__content">
         <!-- Error Code -->
         <div class="not-found__code">404</div>
-        
+
         <!-- Main Message -->
         <h1 class="not-found__title">Page Not Found</h1>
-        
+
         <!-- Description -->
         <p class="not-found__description">
           The page you're looking for doesn't exist or has been moved.
         </p>
-        
+
         <!-- Navigation Options -->
         <div class="not-found__actions">
           <router-link to="/" class="not-found__button not-found__button--primary">
             Go Home
           </router-link>
-          <button 
-            @click="goBack" 
-            class="not-found__button not-found__button--secondary"
-            :disabled="!canGoBack"
-          >
+          <button @click="goBack" class="not-found__button not-found__button--secondary" :disabled="!canGoBack">
             Go Back
           </button>
         </div>
-        
+
         <!-- Helpful Links -->
         <div class="not-found__links">
           <p class="not-found__links-title">Or explore:</p>
           <nav class="not-found__nav">
-            <router-link 
-              v-for="link in quickLinks" 
-              :key="link.path"
-              :to="link.path"
-              class="not-found__nav-link"
-            >
+            <router-link v-for="link in quickLinks" :key="link.path" :to="link.path" class="not-found__nav-link">
               {{ link.label }}
             </router-link>
           </nav>
@@ -47,6 +38,7 @@
 </template>
 
 <script setup lang="ts">
+import { SITE_LINKS } from '@/constants'
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -58,11 +50,7 @@ interface QuickLink {
 const router = useRouter()
 const canGoBack = ref(false)
 
-const quickLinks: QuickLink[] = [
-  { path: '/software', label: 'Developer' },
-  { path: '/welding', label: 'Welder' },
-  { path: '/photography', label: 'Photographer' }
-]
+const quickLinks: QuickLink[] = SITE_LINKS.filter(ln => ln.main)
 
 const goBack = () => {
   if (canGoBack.value) {
@@ -179,7 +167,7 @@ onMounted(() => {
     &:disabled {
       opacity: 0.5;
       cursor: not-allowed;
-      
+
       &:hover {
         transform: none;
       }
@@ -192,7 +180,7 @@ onMounted(() => {
     &--primary {
       background: var(--color-primary);
       color: var(--color-text-inverse);
-      
+
       &:not(:disabled):hover {
         background: var(--color-secondary);
       }
@@ -202,7 +190,7 @@ onMounted(() => {
       background: var(--color-surface-2);
       color: var(--color-text);
       border: 1px solid var(--color-border);
-      
+
       &:not(:disabled):hover {
         background: var(--color-surface-3);
       }
@@ -244,7 +232,7 @@ onMounted(() => {
     padding: var(--space-2) var(--space-3);
     border-radius: var(--radius-sm);
     transition: all 0.2s ease;
-    
+
     &:hover {
       color: var(--color-primary);
       background: var(--color-surface-1);

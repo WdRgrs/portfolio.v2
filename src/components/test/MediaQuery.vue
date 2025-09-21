@@ -28,5 +28,6 @@ div {
   position: absolute;
   top: 5rem;
   right: 2rem;
+  z-index: 1;
 }
 </style>

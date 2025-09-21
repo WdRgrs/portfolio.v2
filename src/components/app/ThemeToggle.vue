@@ -38,5 +38,6 @@ watch(theme, applyTheme)
   position: absolute;
   right: 2rem;
   top: 2rem;
+  z-index: 1;
 }
 </style>

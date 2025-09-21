@@ -38,6 +38,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { SITE_LINKS } from '@/constants'
 
 interface NavLink {
   path: string
@@ -45,11 +46,7 @@ interface NavLink {
   icon?: string
 }
 
-const navLinks: NavLink[] = [
-  { path: '/software', label: 'Developer' },
-  { path: '/welding', label: 'Welder' },
-  { path: '/photography', label: 'Photographer' }
-]
+const navLinks: NavLink[] = SITE_LINKS.filter(ln => ln.main)
 
 const isMobileMenuOpen = ref(false)
 
@@ -72,7 +69,7 @@ const closeMobileMenu = () => {
   backdrop-filter: blur(8px);
 
   &__container {
-    max-width: 1800px;
+    max-width: var(--max-width);
     height: var(--nav-bar-height);
     margin: auto;
     padding: var(--space-5);
