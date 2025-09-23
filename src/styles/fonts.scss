@@ -55,6 +55,7 @@
     --text-lg: 1.25rem;       // 20px
     --text-xl: 1.5rem;        // 24px
     --text-2xl: 1.875rem;     // 30px
+    --text-3xl: 2.5rem;     // 30px
 
     // Media-specific overrides
     @include laptop {

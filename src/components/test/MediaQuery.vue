@@ -25,9 +25,10 @@ const deviceSize = computed(() => {
 
 <style scoped>
 div {
-  position: absolute;
-  top: 5rem;
-  right: 2rem;
-  z-index: 1;
+  /* position: absolute; */
+  /* top: 5rem; */
+  /* right: 2rem; */
+  padding-bottom: 1rem;
+    z-index: 1;
 }
 </style>

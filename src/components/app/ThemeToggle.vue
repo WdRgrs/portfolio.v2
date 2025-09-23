@@ -1,11 +1,16 @@
 <template>
-  <button class="toggle" @click="toggleTheme">
-    {{ theme }}
-  </button>
+  <div class="toggle">
+    <MediaQuery />
+
+    <button class="toggle__btn" @click="toggleTheme">
+      {{ theme }}
+    </button>
+  </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, onMounted, watch } from 'vue'
+import MediaQuery from '@/components/test/MediaQuery.vue'
 
 const theme = ref<'light' | 'dark'>('light')
 
@@ -34,10 +39,14 @@ watch(theme, applyTheme)
 
 <style scoped lang="scss">
 .toggle {
-  cursor: pointer;
-  position: absolute;
-  right: 2rem;
-  top: 2rem;
-  z-index: 1;
+  position: fixed;
+  text-align: right;
+  right: 1rem;
+  bottom: 2rem;
+  
+  &__button {
+    cursor: pointer;
+    z-index: 1;
+  }
 }
 </style>

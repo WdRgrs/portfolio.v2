@@ -8,19 +8,19 @@
   --space-4: calc(0.75rem * var(--scale));
   --space-5: calc(1rem * var(--scale));
   --space-6: calc(1.5rem * var(--scale));
-  --space-8: calc(2rem * var(--scale));
+  --space-7: calc(2rem * var(--scale));
+  --space-8: calc(3rem * var(--scale));
+  --space-9: calc(4rem * var(--scale));
 
-  // Spacing
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
+  --space-neg-1: calc(var(--space-1) * -1);
+  --space-neg-2: calc(var(--space-2) * -1);
+  --space-neg-3: calc(var(--space-3) * -1);
+  --space-neg-4: calc(var(--space-4) * -1);
+  --space-neg-5: calc(var(--space-5) * -1);
+  --space-neg-6: calc(var(--space-6) * -1);
+  --space-neg-8: calc(var(--space-7) * -1);
+  --space-neg-8: calc(var(--space-8) * -1);
+  --space-neg-9: calc(var(--space-9) * -1);
 
-  --space-neg-xs: -4px;
-  --space-neg-sm: -8px;
-  --space-neg-md: -16px;
-  --space-neg-lg: -24px;
-  --space-neg-xl: -32px;
  }
 }

@@ -1,5 +1,7 @@
 <template>
-Devlog
+  <div>
+    Devlog
+  </div>
 </template>
 
 <script setup lang="ts">

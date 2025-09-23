@@ -61,7 +61,9 @@ const closeMobileMenu = () => {
 
 <style scoped lang="scss">
 .navbar {
-  position: sticky;
+  position: fixed;
+  left: 0;
+  right: 0;
   top: 0;
   z-index: var(--z-sticky);
   background: var(--color-bg);
@@ -111,7 +113,6 @@ const closeMobileMenu = () => {
     padding: var(--space-2) var(--space-3);
     border-radius: var(--radius-sm);
     transition: all 0.2s ease;
-
     @include tablet {
       padding: var(--space-1);
     }

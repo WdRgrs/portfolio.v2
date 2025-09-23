@@ -39,9 +39,9 @@ const navLinks = SITE_LINKS.filter(ln => ln.main)
 
 <style scoped lang="scss">
 .landing {
-  position: relative; // maybe fixed
-  width: 100vw;
-  height: calc(100vh - var(--nav-bar-height));
+  // position: fixed;
+  width: 100dvw;
+  height: 100dvh;
   overflow: hidden;
 
   @include mobile {
@@ -49,7 +49,7 @@ const navLinks = SITE_LINKS.filter(ln => ln.main)
   }
 
   background: radial-gradient(ellipse at bottom,
-    var(--color-surface-3) -80%,
+    var(--color-surface-3) 0%,
     var(--color-bg) 60%);
 
   &__container {

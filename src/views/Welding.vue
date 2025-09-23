@@ -1,5 +1,7 @@
 <template>
-  weld
+  <div>
+    weld
+  </div>
 </template>
 
 <script setup lang="ts">
