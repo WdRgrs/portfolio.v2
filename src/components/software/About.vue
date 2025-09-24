@@ -251,9 +251,13 @@ const displayContent = computed(() => {
       }
 
       @include mobile {
+        height: 60dvh;
+        overflow: hidden;
         width: fit-content;
         margin: auto;
-        // text-align: center;
+        & p {
+          font-size: var(--text-xl) !important;
+        }
       }
     }
 
