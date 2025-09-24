@@ -127,7 +127,7 @@ onMounted(() => {
     max-width: 400px;
 
     @include mobile {
-      font-size: var(--text-base);
+      font-size: var(--text-md);
     }
   }
 
@@ -152,7 +152,7 @@ onMounted(() => {
     border-radius: var(--radius-md);
     font-family: var(--font-ui);
     font-weight: var(--font-medium);
-    font-size: var(--text-base);
+    font-size: var(--text-md);
     text-decoration: none;
     border: none;
     cursor: pointer;

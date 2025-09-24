@@ -3,23 +3,24 @@
     <template #header>
       <div class="about__header">
         <h2 id="about-title" class="about__title">
-          {{ isTldr ? 'I am . .' : 'About' }}
+          <Transition name="slide-fade" mode="out-in">
+            <span :key="isTldr.toString()">{{ isTldr ? 'I am ..' : 'About' }}</span>
+          </Transition>
         </h2>
-
         <div class="about__controls">
-          <button class="btn" 
+          <button 
+            class="btn" 
             :class="{ 'btn--active': isTldr }" 
-            @mouseenter="handleTldr"
-            @touchstart.prevent="handleTldr" 
-            @mouseleave="handleTldrEnd" 
-            @touchend="handleTldrEnd"
-            @touchcancel="handleTldrEnd">
+            @click="toggleTldr"
+            aria-label="Toggle summary view"
+          >
             <span>TL:DR</span>
             <span>:)</span>
           </button>
         </div>
       </div>
     </template>
+
     <div class="about__content" :class="{ 'about__content--active': isTldr }">
       <p v-for="(text, idx) in displayContent" :key="idx">
         <span v-html="text" />
@@ -62,20 +63,16 @@ onUnmounted(() => {
   clearAllTimers()
 })
 
-const handleTldr = () => {
+const toggleTldr = () => {
   if (!isTldr.value) {
     isTldr.value = true
     startTldrAnimation()
-  }
-}
-
-const handleTldrEnd = () => {
-  setTimeout(() => {
+  } else {
     isTldr.value = false
     showTldr.value = false
     activeGlowIndex.value = -1
     resetContent()
-  }, 150)
+  }
 }
 
 function resetContent() {
@@ -212,10 +209,29 @@ const displayContent = computed(() => {
     transition: all 0.3s ease;
     padding: var(--space-5);
     user-select: none;
-    
+
+    span {
+      display: inline-block;
+    }
+
     @include mobile {
       padding-bottom: var(--space-4);
-      text-align: center;
+      // text-align: center;
+    }
+    
+    .slide-fade-enter-active,
+    .slide-fade-leave-active {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .slide-fade-enter-from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    .slide-fade-leave-to {
+      opacity: 0;
+      transform: translateY(10px);
     }
   }
 
@@ -235,7 +251,9 @@ const displayContent = computed(() => {
       }
 
       @include mobile {
-        text-align: center;
+        width: fit-content;
+        margin: auto;
+        // text-align: center;
       }
     }
 
@@ -262,7 +280,7 @@ const displayContent = computed(() => {
       font-weight: var(--font-semibold);
       color: var(--color-accent);
       transition: all 0.3s ease;
-      // display: inline-block;
+      display: inline-block;
 
       &.highlight--glow {
         animation: glow 1.2s ease-in;
@@ -289,6 +307,10 @@ const displayContent = computed(() => {
       font-family: var(--font-fira);
       font-size: var(--text-lg);
       font-weight: var(--font-medium);
+
+        &--active {
+          cursor:col-resize;
+        }
       
       @include mobile {
         transform: scale(var(--scale));
