@@ -1,23 +1,21 @@
 <template>
   <PageSection class="about" variant="default" spacing="normal">
     <template #header>
-      <div class="about__header">
-        <h2 id="about-title" class="about__title">
-          <Transition name="slide-fade" mode="out-in">
-            <span :key="isTldr.toString()">{{ isTldr ? 'I am ..' : 'About' }}</span>
-          </Transition>
-        </h2>
-        <div class="about__controls">
-          <button 
-            class="btn" 
-            :class="{ 'btn--active': isTldr }" 
-            @click="toggleTldr"
-            aria-label="Toggle summary view"
-          >
-            <span>TL:DR</span>
-            <span>:)</span>
-          </button>
-        </div>
+      <h2 id="about-title" class="about__title">
+        <Transition name="slide-fade" mode="out-in">
+          <span :key="isTldr.toString()">{{ isTldr ? 'I am ..' : 'About' }}</span>
+        </Transition>
+      </h2>
+      <div class="about__controls">
+        <button 
+          class="btn" 
+          :class="{ 'btn--active': isTldr }" 
+          @click="toggleTldr"
+          aria-label="Toggle summary view"
+        >
+          <span>TL:DR</span>
+          <span>:)</span>
+        </button>
       </div>
     </template>
 
@@ -199,16 +197,17 @@ const displayContent = computed(() => {
 .about {
   &__header {
     position: relative;
-    max-width: 1200px;
-    margin: auto;
+    // max-width: 1200px;
+    // margin: auto;
   }
 
   &__title {
-    font-family: var(--font-fredericka);
-    font-size: calc(var(--text-3xl) * 1.5);
+    // font-family: var(--font-fredericka);
+    // font-size: calc(var(--text-3xl) * 1.5);
+    // transition: all 0.3s ease;
+    // padding: var(--space-5);
+    // user-select: none;
     transition: all 0.3s ease;
-    padding: var(--space-5);
-    user-select: none;
 
     span {
       display: inline-block;
@@ -301,6 +300,7 @@ const displayContent = computed(() => {
     top: var(--space-8);
 
     .btn {
+      display: block;
       background-color: transparent;
       border: transparent;
       width: 80px;
@@ -312,9 +312,9 @@ const displayContent = computed(() => {
       font-size: var(--text-lg);
       font-weight: var(--font-medium);
 
-        &--active {
-          cursor:col-resize;
-        }
+      &--active {
+        cursor:col-resize;
+      }
       
       @include mobile {
         transform: scale(var(--scale));

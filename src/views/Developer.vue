@@ -8,23 +8,31 @@
         </div>
       </div> -->
 
-      <About />
+      <About />      
+      <div class="software__border-break" />
+      
+      <Experience />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import About from '@/components/software/About.vue';
+import Experience from '@/components/software/Experience.vue';
 
 </script>
 
 <style scoped lang="scss">
 .software {
-
   &__container {
     position: relative;
     max-width: var(--max-width);
     margin: 0 auto;
+  }
+
+  &__border-break {
+    margin: var(--space-9);
+    border: 1px solid var(--color-border);
   }
 }
 
