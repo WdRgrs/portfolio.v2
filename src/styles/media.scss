@@ -29,17 +29,17 @@ $desktop: 1200px;
   }
 }
 
-@media (width <= 600px) {      /* phone */
+@media (width <= 480px) { /* phone */
+  :root { --scale: .75; }
+}
+@media (480px < width <= 768px) { /* tablet */
   :root { --scale: .9; }
 }
-@media (600px < width <= 1024px) { /* tablet */
-  :root { --scale: .95; }
-}
-@media (1024px < width <= 1440px) { /* monitor */
+@media (768px < width <= 1025px) { /* monitor */
   :root { --scale: 1; }
 }
-@media (width > 1440px) {      /* large monitor */
-  :root { --scale: 1.1; }
+@media (width > 1025px) {      /* large monitor */
+  :root { --scale: 1.25; }
 }
 
 /* Respect user motion settings */
