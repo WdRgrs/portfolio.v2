@@ -46,7 +46,7 @@
     </template>
 
     <!-- Compact mode indicator -->
-    <div v-if="isCompact" class="exp-card__compact-indicator">
+    <div v-if="isCompact" class="exp-card__compact-indicator" @click="action">
       <span>Click to expand</span>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
         <path d="m6 9 6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -70,11 +70,18 @@ interface Experience {
 interface Props {
   experience: Experience
   isCompact?: boolean
+  action?: () => void // Function
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   isCompact: false
 })
+
+function handleAction() {
+  if (props.action) {
+    props.action()
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -85,8 +92,8 @@ withDefaults(defineProps<Props>(), {
   transition: all 0.3s ease;
 
   &--compact {
+    user-select: none;
     padding: var(--space-4);
-    /* Use the CSS variable from parent instead of hardcoded width */
     width: var(--exp-card-width, 280px);
     height: var(--exp-card-height, 160px);
     display: flex;
@@ -98,10 +105,10 @@ withDefaults(defineProps<Props>(), {
     }
 
     &:hover {
-      background: var(--color-surface-2);
-      border-color: var(--color-primary);
-      transform: translateY(-2px);
-      box-shadow: 0 2px 8px var(--color-shadow);
+      // background: var(--color-surface-2);
+      // border-color: var(--color-primary);
+      // transform: translateY(-2px);
+      // box-shadow: 0 2px 8px var(--color-shadow);
     }
 
     .exp-card__header {
@@ -134,16 +141,17 @@ withDefaults(defineProps<Props>(), {
     padding: var(--space-6);
     min-height: 300px;
     width: 100%;
+    border: none;
 
     @include mobile {
       padding: var(--space-5);
     }
 
     &:hover {
-      background: var(--color-surface-2);
-      border-color: var(--color-primary);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px var(--color-shadow);
+      // background: var(--color-surface-2);
+      // border-color: var(--color-primary);
+      // transform: translateY(-2px);
+      // box-shadow: 0 4px 12px var(--color-shadow);
     }
 
     .exp-card__header {

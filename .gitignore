@@ -31,3 +31,4 @@ coverage
 package-lock.json
 _notes
 legacy
+src/components/test

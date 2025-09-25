@@ -34,10 +34,16 @@ import PageSection from '@/components/page/Section.vue'
 const isTldr = ref(false)
 
 const paragraphSources = [
-  `Hi! I'm Wade, [passionate] to build and fueled by a [curious] tic to understand how and why things work.`,
-  `My tech story began as a [PC enthusiast] in the 56k dial-up era, when 128MB of RAM was luxurious and "your system is running low on virtual memory" was a daily notification. This early fascination led me to build PCs and eventually to code, turning curiosity into a career.`,
-  `Professionally, I work full-stack but gravitate toward frontend as a medium for expression as much as a technology. The mentor side of me enjoys [crafting] [experiences] that connect people to [ideas] in clear and engaging ways.`,
-  `I'm energized by [innovation] in every form, and especially [inspired] by spatial computing. I dream of one day stepping into the metaverse, as imagined by Neal Stephenson; we're laying the groundwork today for tomorrow's technologies.`
+  `Hi! I'm Wade, [passionate] about building and fueled by a [curious] tic to understand how and why things work.`,
+  
+  `My tech story began as a [PC enthusiast] in the 56k dial-up era, when 128MB of RAM was luxurious and "your system is running low on virtual memory" was a daily notification. 
+  This early fascination led me to build PCs and eventually to code, turning curiosity into a career.`,
+  
+  `Professionally, I work full-stack but gravitate toward the frontend, a medium for expression as much as a technology. 
+  The mentor side of me enjoys [crafting] [experiences] that connect people to [ideas] in clear and engaging ways.`,
+  
+  `I'm energized by [innovation] in every form, and especially [inspired] by spatial computing. 
+  I dream of one day stepping into the metaverse, as imagined by Neal Stephenson; we're laying the groundwork today for tomorrow's technologies.`
 ]
 
 const tldrPhrases = [

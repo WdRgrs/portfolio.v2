@@ -2,6 +2,7 @@
 
 @layer components {
   :root {
+    // NAV BAR
     --nav-bar-height: 70px;
     @include mobile {
       --nav-bar-height: 50px;
@@ -11,6 +12,18 @@
     }
     @include laptop {
       --nav-bar-height: 60px;
+    }
+
+    // EXPERIENCE CARD
+    --exp-card-width: 280px;
+    --exp-card-height: 160px;
+    --exp-gap: 60px;
+    --cards-visible-width: 80%;
+
+    @include mobile {
+      --exp-card-width: 240px;
+      --exp-card-height: 140px;
+      --exp-gap: 40px;
     }
   }
 }
