@@ -48,15 +48,18 @@ onMounted(() => {
   
   &__header {
     // border: 1px solid rgba(220, 100, 100, .6);
-    margin-bottom: var(--space-4);
+    margin: var(--space-6) auto;
     position: relative;
     max-width: 1200px;
-    margin: auto;
-
+    
     font-family: var(--font-fredericka);
     font-size: calc(var(--text-3xl) * 1.5);
     padding: var(--space-5);
     user-select: none;
+    
+    @include mobile {
+      margin: var(--space-4) auto;
+    }
   }
 }
 </style>

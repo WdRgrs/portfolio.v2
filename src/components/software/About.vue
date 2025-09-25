@@ -220,7 +220,7 @@ const displayContent = computed(() => {
     }
 
     @include mobile {
-      padding-bottom: var(--space-4);
+      // padding-bottom: var(--space-4);
       // text-align: center;
     }
     
