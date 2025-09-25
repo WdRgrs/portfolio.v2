@@ -1,10 +1,16 @@
 <template>
-  <article class="exp-card">
+  <article 
+    class="exp-card" 
+    :class="{
+      'exp-card--compact': isCompact,
+      'exp-card--full': !isCompact
+    }"
+  >
     <div class="exp-card__header">
       <div class="exp-card__company">
         <h3 class="exp-card__name">{{ experience.company }}</h3>
         <a 
-          v-if="experience.website" 
+          v-if="experience.website && !isCompact" 
           :href="experience.website" 
           class="exp-card__link"
           target="_blank"
@@ -21,20 +27,31 @@
       
       <div class="exp-card__meta">
         <span class="exp-card__role">{{ experience.role }}</span>
-        <span class="exp-card__divider">•</span>
-        <span class="exp-card__location">{{ experience.location }}</span>
+        <span v-if="!isCompact" class="exp-card__divider">•</span>
+        <span v-if="!isCompact" class="exp-card__location">{{ experience.location }}</span>
       </div>
       
       <span class="exp-card__period">{{ experience.period }}</span>
     </div>
 
-    <p class="exp-card__description">{{ experience.description }}</p>
+    <!-- Only show in full mode -->
+    <template v-if="!isCompact">
+      <p class="exp-card__description">{{ experience.description }}</p>
 
-    <ul class="exp-card__achievements">
-      <li v-for="(achievement, index) in experience.achievements" :key="index">
-        {{ achievement }}
-      </li>
-    </ul>
+      <ul class="exp-card__achievements">
+        <li v-for="(achievement, index) in experience.achievements" :key="index">
+          {{ achievement }}
+        </li>
+      </ul>
+    </template>
+
+    <!-- Compact mode indicator -->
+    <div v-if="isCompact" class="exp-card__compact-indicator">
+      <span>Click to expand</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="m6 9 6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
   </article>
 </template>
 
@@ -52,9 +69,12 @@ interface Experience {
 
 interface Props {
   experience: Experience
+  isCompact?: boolean
 }
 
-defineProps<Props>()
+withDefaults(defineProps<Props>(), {
+  isCompact: false
+})
 </script>
 
 <style scoped lang="scss">
@@ -62,25 +82,75 @@ defineProps<Props>()
   background: var(--color-surface-1);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-6);
   transition: all 0.3s ease;
-  min-height: 300px;
 
-  @include mobile {
-    padding: var(--space-5);
+  &--compact {
+    padding: var(--space-4);
+    /* Use the CSS variable from parent instead of hardcoded width */
+    width: var(--exp-card-width, 280px);
+    height: var(--exp-card-height, 160px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    @include mobile {
+      padding: var(--space-3);
+    }
+
+    &:hover {
+      background: var(--color-surface-2);
+      border-color: var(--color-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 2px 8px var(--color-shadow);
+    }
+
+    .exp-card__header {
+      margin-bottom: var(--space-2);
+      padding-bottom: var(--space-2);
+    }
+
+    .exp-card__name {
+      font-size: var(--text-lg);
+      
+      @include mobile {
+        font-size: var(--text-base);
+      }
+    }
+
+    .exp-card__role {
+      font-size: var(--text-sm);
+      
+      @include mobile {
+        font-size: var(--text-xs);
+      }
+    }
+
+    .exp-card__period {
+      font-size: var(--text-xs);
+    }
   }
 
-  &:hover {
-    background: var(--color-surface-2);
-    border-color: var(--color-primary);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px var(--color-shadow);
-  }
+  &--full {
+    padding: var(--space-6);
+    min-height: 300px;
+    width: 100%;
 
-  &__header {
-    margin-bottom: var(--space-4);
-    border-bottom: 1px solid var(--color-divider);
-    padding-bottom: var(--space-4);
+    @include mobile {
+      padding: var(--space-5);
+    }
+
+    &:hover {
+      background: var(--color-surface-2);
+      border-color: var(--color-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px var(--color-shadow);
+    }
+
+    .exp-card__header {
+      margin-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-divider);
+      padding-bottom: var(--space-4);
+    }
   }
 
   &__company {
@@ -204,6 +274,30 @@ defineProps<Props>()
         color: var(--color-primary);
         font-weight: var(--font-bold);
       }
+    }
+  }
+
+  &__compact-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-2);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    font-family: var(--font-body);
+    border-top: 1px solid var(--color-divider);
+    margin-top: auto; /* Push to bottom */
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .exp-card--compact:hover & {
+      opacity: 1;
     }
   }
 }
