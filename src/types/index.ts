@@ -1,4 +1,5 @@
 export * from './experience'
+export * from './links'
 
 export interface ExperienceBase {
   period: string

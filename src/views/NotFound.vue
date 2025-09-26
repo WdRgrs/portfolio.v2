@@ -15,7 +15,7 @@
 
         <!-- Navigation Options -->
         <div class="not-found__actions">
-          <router-link to="/" class="not-found__button not-found__button--primary">
+          <router-link :to="LANDING" class="not-found__button not-found__button--primary">
             Go Home
           </router-link>
           <button @click="goBack" class="not-found__button not-found__button--secondary" :disabled="!canGoBack">
@@ -38,9 +38,9 @@
 </template>
 
 <script setup lang="ts">
-import { SITE_LINKS } from '@/constants'
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { SITE_LINKS, LINKS } from '@/constants'
 
 interface QuickLink {
   path: string
@@ -49,7 +49,7 @@ interface QuickLink {
 
 const router = useRouter()
 const canGoBack = ref(false)
-
+const { LANDING} = LINKS.SITE
 const quickLinks: QuickLink[] = SITE_LINKS.filter(ln => ln.main)
 
 const goBack = () => {

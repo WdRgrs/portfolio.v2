@@ -2,7 +2,7 @@
   <nav class="navbar" :class="{ 'navbar--mobile-open': isMobileMenuOpen }">
     <div class="navbar__container">
       <!-- Logo/name -->
-      <router-link to="/" class="navbar__name">
+      <router-link :to="LANDING_PAGE" class="navbar__name">
         <span class="navbar__name-text">
           <span class="navbar__name-initial">W</span>ade
           <span class="navbar__name-initial">R</span>ogers
@@ -38,7 +38,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { SITE_LINKS } from '@/constants'
+import { LINKS, SITE_LINKS } from '@/constants'
 
 interface NavLink {
   path: string
@@ -47,6 +47,7 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = SITE_LINKS.filter(ln => ln.main)
+const LANDING_PAGE = LINKS.SITE.LANDING
 
 const isMobileMenuOpen = ref(false)
 

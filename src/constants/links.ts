@@ -1,3 +1,5 @@
+import type { LocalLink, ExternalLink } from "@/types"
+
 export const LINKS = {
   SITE: {
     LANDING: '/',
@@ -15,6 +17,7 @@ export const LINKS = {
     INSTAGRAM: 'https://www.instagram.com/wdrgrs/',
   },
   COMPANIES: {
+    RHDM: 'https//www.rhdm.com',
     NEXTIQ: 'https://www.nextiq.com/',
     DEVMOUNTAIN: 'https://strayer.smartcatalogiq.com/en/2023-2024/catalog/nondegree-noncredit-offerings/devmountain-offerings',
   },
@@ -30,12 +33,6 @@ export const LINKS = {
   },
 } as const;
 
-export type LocalLink = Readonly<{
-  key: string
-  label: string
-  path: string
-  main?: boolean
-}>;
 
 export const SITE_LINKS: ReadonlyArray<LocalLink> = [
   { key: 'landing', label: 'Landing', path: LINKS.SITE.LANDING },
@@ -46,14 +43,6 @@ export const SITE_LINKS: ReadonlyArray<LocalLink> = [
   { key: 'resume', label: 'Resume', path: LINKS.SITE.RESUME },
   { key: 'not_found', label: 'Not Found', path: LINKS.SITE.NOT_FOUND },
 ] as const;
-
-export type ExternalLink = Readonly<{
-  key: string;
-  label: string;
-  href: string;
-  icon?: 'github' | 'linkedin' | 'instagram' | 'external';
-  rel?: string;
-}>;
 
 export const SOCIAL_LINKS: ReadonlyArray<ExternalLink> = [
   { key: 'github', label: 'GitHub', href: LINKS.SOCIAL.GITHUB, icon: 'github' },

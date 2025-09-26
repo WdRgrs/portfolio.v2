@@ -25,11 +25,12 @@ import { useRoute } from 'vue-router'
 import NavBar from '@/components/app/NavBar.vue'
 import ThemeToggle from './components/app/ThemeToggle.vue';
 import Footer from '@/components/page/Footer.vue'
+import { LINKS } from '@/constants';
 
 const route = useRoute()
 
 const isLanding = computed(() => {
-  return route.fullPath === "/"
+  return route.fullPath === LINKS.SITE.LANDING
 })
 </script>
 
