@@ -65,26 +65,19 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import type { WorkExperienceData } from '@/types'
 import PageSection from '@/components/page/Section.vue'
 import ExperienceCard from '@/components/software/ExperienceCard.vue'
+import { WORK_EXPERIENCE } from '@/constants'
 
-interface ExperienceCardData {
-  company: string
-  role: string
-  location: string
-  period: string
-  description: string
-  achievements: string[]
-  logo?: string
-  website?: string
-}
+const jobs = WORK_EXPERIENCE
 
 const isPaused = ref(false)
 
-const selectedJob = ref<ExperienceCardData | null>(null)
+const selectedJob = ref<WorkExperienceData | null>(null)
 const duplicatedJobs = computed(() => [...jobs, ...jobs, ...jobs])
 
-function selectCard(job: ExperienceCardData) {
+function selectCard(job: WorkExperienceData) {
   selectedJob.value = job
   pauseAll()
 }
@@ -112,67 +105,9 @@ function incrementJob() {
 function decrementJob() {
   const idx = jobs.findIndex(job => selectedJob.value?.company == job.company)
   selectedJob.value = jobs[idx - 1] ?? jobs[jobs.length - 1]
-
 }
 
-const jobs: ExperienceCardData[] = [
-  {
-    company: 'Hinkle Inspection and Testing',
-    role: 'Lead Product Engineer and UX',
-    location: 'Austin, TX',
-    period: 'Sep 2025 - Present',
-    description: 'Planned, designed, and shipped a modern digital presence for a Certified Welding Inspector to drive quote requests and establish credibility.',
-    achievements: [
-      'Drove discovery and created decision matrices for framework, hosting, images, and quote flow',
-      'Planned architecture and shipped a production-ready single-page site end to end',
-      'Designed responsive UI/UX focused on service clarity and client conversion',
-      'Built a Vue 3 + Vite SPA in TypeScript, no backend dependency',
-      'Implemented a quote workflow with mailto fallback, hosted form, and serverless adapter',
-      'Delivered accessibility checks, SEO metadata, Open Graph, LocalBusiness schema, and GitHub Pages CI with custom domain and HTTPS'
-    ],
-    website: 'https://www.hinkletesting.com'
-  },
-  {
-    company: 'Rhodium Enterprises LLC',
-    role: 'Software Engineer',
-    location: 'Rockdale, TX (remote)',
-    period: 'Dec 2022 - May 2025',
-    description: 'Rhodium is a vertically integrated, Texas-based Bitcoin mining company pioneering energy-efficient, high-density mining through proprietary liquid-cooled infrastructure.',
-    achievements: [
-      'Led frontend architecture and UX/UI design across multiple internal dashboards, emphasizing modularity and scalability',
-      'Optimized data handling through selective parsing and caching, reducing dataset size from 70MB to 2MB',
-      'Implemented real-time systems using WebSockets for event tracking and state updates',
-      'Built robust CRUD systems and managed workflows end-to-end from design to deployment'
-    ],
-    website: 'https://www.rhdm.com'
-  },
-  {
-    company: 'NextIQ',
-    role: 'Software Developer',
-    location: 'Austin, TX',
-    period: 'Feb 2022 - Sep 2022',
-    description: 'NextIQ is a startup platform educating individuals and companies in the renewable energy sector through video content and tutorials from industry leaders.',
-    achievements: [
-      'Created and maintained website pages, components and user workflows',
-      'Curated analytics and metrics of user activity to guide data-driven decisions',
-      'Ensured responsive design across all device dimensions',
-      'Implemented QA processes and collaborated across departments to eliminate bugs'
-    ],
-    website: 'https://www.nextiq.com'
-  },
-  {
-    company: 'DevMountain',
-    role: 'Full Stack Student Developer',
-    location: 'Lehi, UT (remote)',
-    period: 'May 2021 - Sep 2021',
-    description: 'Intensive full-stack development bootcamp certification program.',
-    achievements: [
-      'Completed comprehensive curriculum covering frontend and backend technologies',
-      'Built full-stack applications using modern web development frameworks',
-      'Developed and recognized for collaborative coding and project management skills'
-    ]
-  }
-]
+
 
 function buildCode(): string {
   return `<ExperienceCard

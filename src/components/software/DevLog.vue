@@ -4,15 +4,18 @@
       <h2 class="dev-log__title">DevLog</h2>
     </template>
 
-
     <div class="dev-log__content">
-      Here be giants
+      Here be giants:
+      {{ projects }}
     </div>
   </PageSection>
 </template>
 
 <script setup lang="ts">
 import PageSection from '@/components/page/Section.vue'
+import { PROJECT_EXPERIENCE } from '@/constants';
+const projects = PROJECT_EXPERIENCE
+
 
 </script>
 

@@ -1,0 +1,67 @@
+import type { WorkExperienceData } from "@/types"
+import { SKILLS_MAP } from "./skills"
+
+const { vite, spa, seo, pages, ci, accessibility, vuex, pinia, ts, websockets, crud, caching, ux, linux, proxmox, ansible, vue, js, css, responsive, analytics, qa, git, react, node, mongo, express, html } = SKILLS_MAP
+
+export const WORK_EXPERIENCE: WorkExperienceData[] = [
+  {
+    company: 'Hinkle Inspection and Testing',
+    role: 'Lead Product Engineer and UX',
+    location: 'Austin, TX',
+    period: 'Sep 2025 - Present',
+    description: 'Planned, designed, and shipped a modern digital presence for a Certified Welding Inspector to drive quote requests and establish credibility.',
+    achievements: [
+      'Drove discovery and created decision matrices for framework, hosting, images, and quote flow',
+      'Planned architecture and shipped a production-ready single-page site end to end',
+      'Designed responsive UI/UX focused on service clarity and client conversion',
+      'Built a Vue 3 + Vite SPA in TypeScript, no backend dependency',
+      'Implemented a quote workflow with mailto fallback, hosted form, and serverless adapter',
+      'Delivered accessibility checks, SEO metadata, Open Graph, LocalBusiness schema, and GitHub Pages CI with custom domain and HTTPS'
+    ],
+    website: 'https://www.hinkletesting.com',
+    skills: [vue, vite, ts, spa, ux, responsive, seo, pages, ci, accessibility]
+  },
+  {
+    company: 'Rhodium Enterprises LLC',
+    role: 'Software Engineer',
+    location: 'Rockdale, TX (remote)',
+    period: 'Dec 2022 - May 2025',
+    description: 'Rhodium is a vertically integrated, Texas-based Bitcoin mining company pioneering energy-efficient, high-density mining through proprietary liquid-cooled infrastructure.',
+    achievements: [
+      'Led frontend architecture and UX/UI design across multiple internal dashboards, emphasizing modularity and scalability',
+      'Optimized data handling through selective parsing and caching, reducing dataset size from 70MB to 2MB',
+      'Implemented real-time systems using WebSockets for event tracking and state updates',
+      'Built robust CRUD systems and managed workflows end-to-end from design to deployment'
+    ],
+    website: 'https://www.rhdm.com',
+    skills: [vue, vuex, pinia, ts, websockets, crud, caching, ux, analytics, linux, proxmox, ansible]
+  },
+  {
+    company: 'NextIQ',
+    role: 'Software Developer',
+    location: 'Austin, TX',
+    period: 'Feb 2022 - Sep 2022',
+    description: 'NextIQ is a startup platform educating individuals and companies in the renewable energy sector through video content and tutorials from industry leaders.',
+    achievements: [
+      'Created and maintained website pages, components and user workflows',
+      'Curated analytics and metrics of user activity to guide data-driven decisions',
+      'Ensured responsive design across all device dimensions',
+      'Implemented QA processes and collaborated across departments to eliminate bugs'
+    ],
+    website: 'https://www.nextiq.com',
+    skills: [vue, js, css, responsive, analytics, qa, git]
+  },
+  {
+    company: 'DevMountain',
+    role: 'Full Stack Student Developer',
+    location: 'Lehi, UT (remote)',
+    period: 'May 2021 - Sep 2021',
+    description: 'Intensive full-stack development bootcamp certification program.',
+    achievements: [
+      'Completed comprehensive curriculum covering frontend and backend technologies',
+      'Built full-stack applications using modern web development frameworks',
+      'Developed and recognized for collaborative coding and project management skills'
+    ],
+    skills: [js, react, node, mongo, express, html, css, git]
+  }
+]
