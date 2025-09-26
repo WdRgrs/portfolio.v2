@@ -36,12 +36,13 @@ import DevLog from '@/components/software/DevLog.vue';
   }
 
   &__border-break {
-    height: 1px;
+    // height: 1px;
+    // background-image: linear-gradient(90deg, transparent, var(--color-surface-1), var(--color-secondary), var(--color-surface-1), transparent);
+    // margin: var(--space-8);
     height: 50px;
     border-bottom: 1px solid var(--color-surface-2);
     box-shadow: 0 20px 20px -20px var(--color-surface-1);;
-    margin: var(--space-9);
-    // background-image: linear-gradient(90deg, transparent, var(--color-surface-1), var(--color-secondary), var(--color-surface-1), transparent);
+    
   }
 }
 

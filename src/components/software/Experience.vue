@@ -40,6 +40,11 @@
         </div>
       </div>
 
+      <!-- Resume -->
+      <div class="experience__resume">
+        curriculum vitae
+      </div>
+
       <!-- Expanded card Modal -->
       <Transition name="modal">
         <div v-if="selectedJob" class="experience__modal">
@@ -183,6 +188,24 @@ function buildCode(): string {
 
 <style scoped lang="scss">
 .experience {
+  --mask-inner: linear-gradient(
+      90deg,
+      transparent 12%,
+      black 14%,
+      black 86%,
+      transparent 88%
+    );
+  --mask-outer: linear-gradient(
+      90deg, 
+      transparent 0%, 
+      black 3%, 
+      black 97%, 
+      transparent 100%
+    );
+  @include mobile {
+    --mask-outer: none;
+  }
+
   overflow-x: clip;
   
   &__container {
@@ -204,54 +227,15 @@ function buildCode(): string {
 
     &--code {
       position: relative;
-      -webkit-mask-image: linear-gradient(
-        90deg, 
-        transparent 0%, 
-        black 3%, 
-        black 97%, 
-        transparent 100%
-      );
-      mask-image: linear-gradient(
-        90deg, 
-        transparent 0%, 
-        black 5%, 
-        black 95%, 
-        transparent 100%
-      );
-      @include mobile {
-        mask-image: none;
-      }
+      -webkit-mask-image: var(--mask-outer);
+      mask-image: var(--mask-outer);
     }
       
     &--cards {
       position: absolute;
-      // top: 0;
-      // left: 50%;
-      // transform: translateX(-50%);
-      
-      -webkit-mask-image: linear-gradient(
-        90deg,
-        transparent 12%,
-        black 15%,
-        black 85%,
-        transparent 89%,
-      );
-      mask-image: linear-gradient(
-        90deg,
-        transparent 17%,
-        black 20%,
-        black 80%,
-        transparent 83%,
-      );
-      @include mobile {
-        mask-image: linear-gradient(
-          90deg,
-          transparent 10%,
-          black 15%,
-          black 85%,
-          transparent 90%,
-        );
-      }
+
+      -webkit-mask-image: var(--mask-inner);
+      mask-image: var(--mask-inner);
     }
   }
 
@@ -314,6 +298,12 @@ function buildCode(): string {
     }
   }
 
+  &__resume {
+    margin: var(--space-8);
+    span {
+      color: red;
+    }
+  }
   /* Expanded card */
   &__modal {
     position: fixed;
