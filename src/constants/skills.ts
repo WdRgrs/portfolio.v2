@@ -68,6 +68,8 @@ export const SKILLS_MAP = {
   pages: 'GitHub pages',
   ci: 'CI/CD',
   seo: 'SEO',
+  networking: 'Networking',
+  dns: 'DNS',
   accessibility: 'Accessibility',
   responsive: 'Responsive Design',
   ux: 'UX/UI Design',

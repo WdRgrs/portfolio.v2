@@ -5,3 +5,9 @@ export type WorkExperienceData = ExperienceBase & {
   role: string
   location: string
 }
+
+export type ProjectData = ExperienceBase & {
+  name: string
+  type?: string
+  repository?: string
+}

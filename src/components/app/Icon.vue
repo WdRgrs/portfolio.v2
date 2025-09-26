@@ -10,13 +10,13 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-
 import { 
-  List, 
-  ExternalLink 
+  List,
+  ExternalLink,
+  
 } from 'lucide-vue-next';
 
-type Icon = 'link' | 'list'
+type Icon = 'link' | 'list' | 'github' | 'linkedin' | 'instagram'
 
 interface Props {
   name: Icon
