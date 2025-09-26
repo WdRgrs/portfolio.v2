@@ -2,7 +2,7 @@
   <section 
     ref="containerRef" 
     class="page-section" 
-    :style="{ height: lockedHeight || 'auto' }"
+    :style="{ minHeight: lockedHeight || 'auto' }"
   >
     <div class="page-section__container">
       <div class="page-section__header">

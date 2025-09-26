@@ -17,11 +17,11 @@
           rel="noopener noreferrer"
           aria-label="Visit company website"
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <polyline points="15 3 21 3 21 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <line x1="10" y1="14" x2="21" y2="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <Icon 
+            name="link"
+            size="md"
+            color="var(--color-accent)"
+          />
         </a>
       </div>
       
@@ -56,21 +56,13 @@
 </template>
 
 <script setup lang="ts">
-interface Experience {
-  company: string
-  role: string
-  location: string
-  period: string
-  description: string
-  achievements: string[]
-  logo?: string
-  website?: string
-}
+import Icon from '@/components/app/Icon.vue'
+import type { WorkExperienceData } from '@/types'
 
 interface Props {
-  experience: Experience
+  experience: WorkExperienceData
   isCompact?: boolean
-  action?: () => void // Function
+  action?: () => void
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -189,10 +181,10 @@ function handleAction() {
       color: var(--color-primary);
     }
 
-    svg {
-      width: 16px;
-      height: 16px;
-    }
+    // svg {
+    //   width: 16px;
+    //   height: 16px;
+    // }
   }
 
   &__meta {
