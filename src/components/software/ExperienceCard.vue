@@ -9,7 +9,7 @@
     <div class="exp-card__header">
       <div class="exp-card__company">
         <h3 class="exp-card__name">{{ experience.company }}</h3>
-        <a 
+        <a
           v-if="experience.website && !isCompact" 
           :href="experience.website" 
           class="exp-card__link"
@@ -17,10 +17,11 @@
           rel="noopener noreferrer"
           aria-label="Visit company website"
         >
+          {{ truncateLink(experience.website) }}
           <Icon 
             name="link"
             size="md"
-            color="var(--color-accent)"
+            color="var(--color-text-muted)"
           />
         </a>
       </div>
@@ -57,6 +58,7 @@
 
 <script setup lang="ts">
 import Icon from '@/components/app/Icon.vue'
+import { useClipString } from '@/composables/useClipString'
 import type { WorkExperienceData } from '@/types'
 
 interface Props {
@@ -68,6 +70,10 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   isCompact: false
 })
+
+function truncateLink(link: string) {
+  return useClipString(link, 40)
+}
 
 function handleAction() {
   if (props.action) {
@@ -155,36 +161,38 @@ function handleAction() {
 
   &__company {
     display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    margin-bottom: var(--space-2);
+    flex-direction: column;
+    // align-items: center;
+    // gap: var(--space-3);
+    // margin-bottom: var(--space-2);
   }
-
+  
   &__name {
-    font-family: var(--font-title);
+    font-family: var(--font-inter);
     font-size: var(--text-xl);
     font-weight: var(--font-semibold);
+    font-variant: small-caps;
     color: var(--color-text);
-
-    @include mobile {
-      font-size: var(--text-lg);
-    }
   }
 
   &__link {
     color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-sm);
     transition: color 0.2s ease;
     display: flex;
     align-items: center;
 
+    .icon {
+      margin-left: var(--space-2);
+      @include mobile {
+        margin: 0;
+      }
+    }
+
     &:hover {
       color: var(--color-primary);
     }
-
-    // svg {
-    //   width: 16px;
-    //   height: 16px;
-    // }
   }
 
   &__meta {

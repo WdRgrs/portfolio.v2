@@ -1,5 +1,5 @@
 import type { WorkExperienceData } from "@/types"
-import { SKILLS_MAP } from "./skills"
+import { LINKS, SKILLS_MAP } from './index'
 
 const { vite, spa, seo, pages, ci, accessibility, vuex, pinia, ts, websockets, crud, caching, ux, linux, proxmox, ansible, vue, js, css, responsive, analytics, qa, git, react, node, mongo, express, html } = SKILLS_MAP
 
@@ -18,7 +18,7 @@ export const WORK_EXPERIENCE: WorkExperienceData[] = [
       'Implemented a quote workflow with mailto fallback, hosted form, and serverless adapter',
       'Delivered accessibility checks, SEO metadata, Open Graph, LocalBusiness schema, and GitHub Pages CI with custom domain and HTTPS'
     ],
-    website: 'https://www.hinkletesting.com',
+    website: LINKS.COMPANIES.HINKLE,
     skills: [vue, vite, ts, spa, ux, responsive, seo, pages, ci, accessibility]
   },
   {
@@ -33,7 +33,7 @@ export const WORK_EXPERIENCE: WorkExperienceData[] = [
       'Implemented real-time systems using WebSockets for event tracking and state updates',
       'Built robust CRUD systems and managed workflows end-to-end from design to deployment'
     ],
-    website: 'https://www.rhdm.com',
+    website: LINKS.COMPANIES.RHDM,
     skills: [vue, vuex, pinia, ts, websockets, crud, caching, ux, analytics, linux, proxmox, ansible]
   },
   {
@@ -48,7 +48,7 @@ export const WORK_EXPERIENCE: WorkExperienceData[] = [
       'Ensured responsive design across all device dimensions',
       'Implemented QA processes and collaborated across departments to eliminate bugs'
     ],
-    website: 'https://www.nextiq.com',
+    website: LINKS.COMPANIES.NEXTIQ,
     skills: [vue, js, css, responsive, analytics, qa, git]
   },
   {
@@ -57,6 +57,7 @@ export const WORK_EXPERIENCE: WorkExperienceData[] = [
     location: 'Lehi, UT (remote)',
     period: 'May 2021 - Sep 2021',
     description: 'Intensive full-stack development bootcamp certification program.',
+    website: LINKS.COMPANIES.DEVMOUNTAIN,
     achievements: [
       'Completed comprehensive curriculum covering frontend and backend technologies',
       'Built full-stack applications using modern web development frameworks',

@@ -2,9 +2,9 @@
   <component 
     :is="parseComponent"
     class="icon"
-    :color="color"
-    :size="parseSize"
-    :stroke-width="parseSize * .1"
+    :stroke="color"
+    :size="+parseSize"
+    :stroke-width="3"
   />
 </template>
 
@@ -33,15 +33,18 @@ const props = withDefaults(defineProps<Props>(), {
 
 const parseSize = computed(() => {
   switch (props.size) {
+    case 'xl':
+      return 28
     case 'lg':
-      return 40
-    case 'md':
       return 22
+    case 'md':
+      return 18
     case 'xs':
       return 10
     case 'sm':
+      return 14
     default:
-      return 20
+      return props.size ?? 18
   }
 })
     
