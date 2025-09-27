@@ -35,13 +35,20 @@
       <span class="exp-card__period">{{ experience.period }}</span>
     </div>
     
-    <!-- Compact skills -->
-    <div v-if="isCompact" class="exp-card__skills">
-      <Chip v-for="skill in compactSkills" :key="skill?.label" :skill="skill"/>
+    <!-- Compact -->
+    <div v-if="isCompact">
+      <div class="exp-card__skills">
+        <Chip v-for="skill in compactSkills" :key="skill?.label" :skill="skill"/>
+      </div>
+      
+      <div class="exp-card__compact-indicator" @click="action">
+        <span>Click to expand</span>
+        <Icon name="chevron-down" size="sm" />
+      </div>
     </div>
-
-    <!-- Only show in full mode -->
-    <template v-if="!isCompact">
+    
+    <!-- Full -->
+    <template v-else>
       <p class="exp-card__description">{{ experience.description }}</p>
       
       <ul class="exp-card__achievements">
@@ -49,21 +56,11 @@
           {{ achievement }}
         </li>
       </ul>
+      
+      <div  class="exp-card__skills">
+        <Chip v-for="skill in experience.skills" :key="skill?.label" :skill="skill"/>
+      </div>
     </template>
-    
-    <!-- Compact mode indicator -->
-    <div v-if="isCompact" class="exp-card__compact-indicator" @click="action">
-      <span>Click to expand</span>
-      <Icon 
-        name="chevron-down"
-        size="sm"
-      />
-    </div>
-    
-    <!-- Full Mode Chips -->
-    <div v-else class="exp-card__skills">
-      <Chip v-for="skill in experience.skills" :key="skill?.label" :skill="skill"/>
-    </div>
   </article>
 </template>
 
@@ -122,6 +119,7 @@ function handleAction() {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     @include mobile {
       padding: var(--space-3);
     }
@@ -129,7 +127,7 @@ function handleAction() {
     &:hover {
       background: var(--color-surface-2);
     }
-    
+
     .exp-card__header {
       margin-bottom: var(--space-2);
       padding-bottom: var(--space-2);
@@ -151,35 +149,32 @@ function handleAction() {
       display: flex;
       flex-wrap: wrap;
       gap: var(--space-2) var(--space-3);
+      padding-bottom: var(--space-3);
     }
   }
 
   &--full {
-    padding: var(--space-6);
-    min-height: 300px;
-    width: 100%;
     border: none;
 
     @include mobile {
-      padding: var(--space-5);
-    }
-
-    &:hover {
-      // background: var(--color-surface-2);
-      // border-color: var(--color-primary);
-      // transform: translateY(-2px);
-      // box-shadow: 0 4px 12px var(--color-shadow);
+      padding: var(--space-3);
     }
 
     .exp-card__header {
-      margin-bottom: var(--space-4);
       border-bottom: 1px solid var(--color-divider);
+      margin-bottom: var(--space-4);
       padding-bottom: var(--space-4);
     }
     .exp-card__skills {
       display: flex;
       flex-wrap: wrap;
       gap: var(--space-2) var(--space-3);
+    }
+    
+    .exp-card__achievements {
+      border-bottom: 1px solid var(--color-divider);
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-4);
     }
   }
 
@@ -285,7 +280,7 @@ function handleAction() {
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
-    border-bottom: 1px solid var(--color-divider);
+    // border-bottom: 1px solid var(--color-divider);
 
     li {
       font-family: var(--font-body);
@@ -312,12 +307,13 @@ function handleAction() {
 
   &__compact-indicator {
     display: flex;
-    align-items: bas;
+    // align-items: flex-end;
     justify-content: center;
     gap: var(--space-2);
     color: var(--color-text-muted);
     font-size: var(--text-sm);
     border-top: 1px solid var(--color-divider);
+    padding-top: var(--space-2);
     opacity: 0.7;
     transition: opacity 0.2s ease;
     .icon {
