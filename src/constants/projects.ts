@@ -1,11 +1,11 @@
 import type { ProjectData } from "@/types"
-import { SKILLS_MAP } from "@/constants"
+import { SKILLS } from "@/constants"
 
 const { 
   rust, macroquad, wasm, git,
   react, node, express, mongo, oauth, spotify, heroku, rest, responsive, analytics, figma, trello,
   linux, docker, networking, dns
-} = SKILLS_MAP
+} = SKILLS
 
 export const PROJECT_EXPERIENCE: ProjectData[] = [
   {

@@ -13,10 +13,11 @@ import { computed } from 'vue'
 import { 
   List,
   ExternalLink,
+  ChevronDown
   
 } from 'lucide-vue-next';
 
-type Icon = 'link' | 'list' | 'github' | 'linkedin' | 'instagram'
+type Icon = 'link' | 'list' | 'github' | 'linkedin' | 'instagram' | 'chevron-down'
 
 interface Props {
   name: Icon
@@ -52,6 +53,8 @@ const parseComponent = computed(() => {
   switch (props.name) { 
     case 'list':
       return List
+    case 'chevron-down':
+      return ChevronDown
     case 'link':
     default:
       return ExternalLink

@@ -123,14 +123,14 @@ function buildCode(): string {
 
 <style scoped lang="scss">
 .experience {
-  --mask-inner: linear-gradient(
+  --mask-card: linear-gradient(
       90deg,
-      transparent 12%,
-      black 14%,
-      black 86%,
-      transparent 88%
+      transparent 11%,
+      black 15%,
+      black 85%,
+      transparent 89%
     );
-  --mask-outer: linear-gradient(
+  --mask-code: linear-gradient(
       90deg, 
       transparent 0%, 
       black 3%, 
@@ -138,7 +138,7 @@ function buildCode(): string {
       transparent 100%
     );
   @include mobile {
-    --mask-outer: none;
+    --mask-code: none;
   }
 
   overflow-x: clip;
@@ -162,15 +162,15 @@ function buildCode(): string {
 
     &--code {
       position: relative;
-      -webkit-mask-image: var(--mask-outer);
-      mask-image: var(--mask-outer);
+      -webkit-mask-image: var(--mask-code);
+      mask-image: var(--mask-code);
     }
       
     &--cards {
       position: absolute;
 
-      -webkit-mask-image: var(--mask-inner);
-      mask-image: var(--mask-inner);
+      -webkit-mask-image: var(--mask-card);
+      mask-image: var(--mask-card);
     }
   }
 

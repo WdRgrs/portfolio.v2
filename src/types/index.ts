@@ -1,3 +1,5 @@
+import type { SkillTheme } from '@/constants'
+
 export * from './experience'
 export * from './links'
 
@@ -7,5 +9,5 @@ export interface ExperienceBase {
   achievements: string[]
   logo?: string
   website?: string
-  skills?: string[]
+  skills?: SkillTheme[]
 }

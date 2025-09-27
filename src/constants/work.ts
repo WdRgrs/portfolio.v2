@@ -1,7 +1,65 @@
 import type { WorkExperienceData } from "@/types"
-import { LINKS, SKILLS_MAP } from './index'
+import { LINKS, SKILLS } from './index'
 
-const { vite, spa, seo, pages, ci, accessibility, vuex, pinia, ts, websockets, crud, caching, ux, linux, proxmox, ansible, vue, js, css, responsive, analytics, qa, git, react, node, mongo, express, html } = SKILLS_MAP
+const { 
+  vite, 
+  nuxt, 
+  spa, 
+  seo, 
+  pages,
+  ci,
+  accessibility,
+  vuex,
+  pinia,
+  ts,
+  websockets,
+  crud,
+  caching,
+  ux,
+  linux,
+  proxmox,
+  ansible,
+  vue,
+  js,
+  css,
+  responsive,
+  analytics,
+  qa,
+  git,
+  react,
+  node,
+  mongo,
+  cognito,
+  express,
+  html,
+  shell,
+  questdb,
+  go,
+  elixir,
+  phoenix,
+  scss,
+  sqlite,
+  neo4j,
+  vuetify,
+  docker,
+  tailwind, 
+  figma,
+  npm,
+  ssr,
+  gitlab,
+  wireframe,
+  asana,
+  aws,
+  amplify,
+  s3,
+  dynamo,
+  graphql,
+  snowflake,
+  mysql,
+  github,
+  redux,
+
+} = SKILLS
 
 export const WORK_EXPERIENCE: WorkExperienceData[] = [
   {
@@ -19,7 +77,23 @@ export const WORK_EXPERIENCE: WorkExperienceData[] = [
       'Delivered accessibility checks, SEO metadata, Open Graph, LocalBusiness schema, and GitHub Pages CI with custom domain and HTTPS'
     ],
     website: LINKS.COMPANIES.HINKLE,
-    skills: [vue, vite, ts, spa, ux, responsive, seo, pages, ci, accessibility]
+    brandColors: ['#1e3a8a', '#3b82f6'],
+    skills: [
+      vue,
+      vite, 
+      spa, 
+      ts, 
+      ux, 
+      wireframe,
+      figma,
+      ci, 
+      responsive, 
+      accessibility,
+      seo,
+      git,
+      github,
+      pages, 
+    ]
   },
   {
     company: 'Rhodium Enterprises LLC',
@@ -34,7 +108,43 @@ export const WORK_EXPERIENCE: WorkExperienceData[] = [
       'Built robust CRUD systems and managed workflows end-to-end from design to deployment'
     ],
     website: LINKS.COMPANIES.RHDM,
-    skills: [vue, vuex, pinia, ts, websockets, crud, caching, ux, analytics, linux, proxmox, ansible]
+    brandColors: ['#181818','#C0A818', '#E0C850', '#E8D860'],
+    skills: [
+      vue, 
+      nuxt,
+      node,
+      questdb,
+      vuex,
+      pinia,
+      vuetify,
+      tailwind, 
+      ts,
+      go,
+      docker,
+      elixir,
+      phoenix,
+      scss,
+      sqlite,
+      mongo,
+      neo4j,
+      html,
+      css,
+      websockets, 
+      crud, 
+      caching, 
+      ux, 
+      analytics, 
+      linux,
+      shell,
+      proxmox, 
+      ansible,
+      git,
+      figma,
+      npm,
+      gitlab,
+      ssr,
+      asana,
+    ]
   },
   {
     company: 'NextIQ',
@@ -49,7 +159,27 @@ export const WORK_EXPERIENCE: WorkExperienceData[] = [
       'Implemented QA processes and collaborated across departments to eliminate bugs'
     ],
     website: LINKS.COMPANIES.NEXTIQ,
-    skills: [vue, js, css, responsive, analytics, qa, git]
+    brandColors: ['#F0B840', '#000000'],
+    skills: [
+      react,
+      dynamo,
+      aws,
+      ts,
+      redux,
+      amplify,
+      cognito,
+      s3,
+      graphql,
+      snowflake,
+      css,
+      html,
+      responsive,
+      analytics,
+      qa,
+      git,
+      gitlab,
+
+    ]
   },
   {
     company: 'DevMountain',
@@ -63,6 +193,18 @@ export const WORK_EXPERIENCE: WorkExperienceData[] = [
       'Built full-stack applications using modern web development frameworks',
       'Developed and recognized for collaborative coding and project management skills'
     ],
-    skills: [js, react, node, mongo, express, html, css, git]
+    brandColors: ['#20A8E0', '#383838'],
+    skills: [js,
+      mongo,
+      express,
+      react,
+      node,
+      mysql,
+      shell,
+      html,
+      css,
+      git,
+      github,
+    ]
   }
 ]

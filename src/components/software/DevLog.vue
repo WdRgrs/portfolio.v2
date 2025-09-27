@@ -1,7 +1,7 @@
 <template>
   <PageSection class="dev-log" variant="default" spacing="normal">
     <template #header>
-      <h2 class="dev-log__title">DevLog</h2>
+      <h2 class="dev-log__title">Dev<span>.</span>Log<span>()</span></h2>
     </template>
 
     <div class="dev-log__content">
@@ -22,7 +22,9 @@ const projects = PROJECT_EXPERIENCE
 <style scoped lang="scss">
 .dev-log {
   &__title {
-
+    span {
+      letter-spacing: var(--space-3);
+    }
   }
 
   &__content {

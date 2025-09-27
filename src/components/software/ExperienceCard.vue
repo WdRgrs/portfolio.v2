@@ -10,8 +10,8 @@
       <div class="exp-card__company">
         <h3 class="exp-card__name">{{ experience.company }}</h3>
         <a
-          v-if="experience.website && !isCompact" 
-          :href="experience.website" 
+          v-if="experience.website && !isCompact"
+          :href="experience.website"
           class="exp-card__link"
           target="_blank"
           rel="noopener noreferrer"
@@ -34,32 +34,46 @@
       
       <span class="exp-card__period">{{ experience.period }}</span>
     </div>
+    
+    <!-- Compact skills -->
+    <div v-if="isCompact" class="exp-card__skills">
+      <Chip v-for="skill in compactSkills" :key="skill?.label" :skill="skill"/>
+    </div>
 
     <!-- Only show in full mode -->
     <template v-if="!isCompact">
       <p class="exp-card__description">{{ experience.description }}</p>
-
+      
       <ul class="exp-card__achievements">
         <li v-for="(achievement, index) in experience.achievements" :key="index">
           {{ achievement }}
         </li>
       </ul>
     </template>
-
+    
     <!-- Compact mode indicator -->
     <div v-if="isCompact" class="exp-card__compact-indicator" @click="action">
       <span>Click to expand</span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path d="m6 9 6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+      <Icon 
+        name="chevron-down"
+        size="sm"
+      />
+    </div>
+    
+    <!-- Full Mode Chips -->
+    <div v-else class="exp-card__skills">
+      <Chip v-for="skill in experience.skills" :key="skill?.label" :skill="skill"/>
     </div>
   </article>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import Chip from '../app/Chip.vue'
 import Icon from '@/components/app/Icon.vue'
 import { useClipString } from '@/composables/useClipString'
 import type { WorkExperienceData } from '@/types'
+import { resolveSkillTheme } from '@/utils/color'
 
 interface Props {
   experience: WorkExperienceData
@@ -75,6 +89,16 @@ function truncateLink(link: string) {
   return useClipString(link, 40)
 }
 
+const compactSkills = computed(() => {
+  const arr = props.experience.skills ?? []
+  const slc = arr?.slice(0, 3)
+
+  const clip = resolveSkillTheme(`+ ${arr.length - slc.length}`)
+  slc.push(clip)
+  
+  return slc
+})
+
 function handleAction() {
   if (props.action) {
     props.action()
@@ -88,50 +112,45 @@ function handleAction() {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   transition: all 0.3s ease;
-
+  height: 100%;
+  
   &--compact {
     user-select: none;
     padding: var(--space-4);
-    width: var(--exp-card-width, 280px);
-    height: var(--exp-card-height, 160px);
+    width: var(--exp-card-width);
+    height: var(--exp-card-height);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
     @include mobile {
       padding: var(--space-3);
     }
-
+    
     &:hover {
-      // background: var(--color-surface-2);
-      // border-color: var(--color-primary);
-      // transform: translateY(-2px);
-      // box-shadow: 0 2px 8px var(--color-shadow);
+      background: var(--color-surface-2);
     }
-
+    
     .exp-card__header {
       margin-bottom: var(--space-2);
       padding-bottom: var(--space-2);
     }
-
+    
     .exp-card__name {
       font-size: var(--text-lg);
-      
-      @include mobile {
-        font-size: var(--text-base);
-      }
     }
-
+    
     .exp-card__role {
       font-size: var(--text-sm);
-      
-      @include mobile {
-        font-size: var(--text-xs);
-      }
     }
-
+    
     .exp-card__period {
       font-size: var(--text-xs);
+    }
+    
+    .exp-card__skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2) var(--space-3);
     }
   }
 
@@ -157,6 +176,11 @@ function handleAction() {
       border-bottom: 1px solid var(--color-divider);
       padding-bottom: var(--space-4);
     }
+    .exp-card__skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2) var(--space-3);
+    }
   }
 
   &__company {
@@ -168,7 +192,7 @@ function handleAction() {
   }
   
   &__name {
-    font-family: var(--font-inter);
+    font-family: var(--font-sans);
     font-size: var(--text-xl);
     font-weight: var(--font-semibold);
     font-variant: small-caps;
@@ -261,6 +285,7 @@ function handleAction() {
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
+    border-bottom: 1px solid var(--color-divider);
 
     li {
       font-family: var(--font-body);
@@ -287,26 +312,23 @@ function handleAction() {
 
   &__compact-indicator {
     display: flex;
-    align-items: center;
+    align-items: bas;
     justify-content: center;
     gap: var(--space-2);
-    padding: var(--space-2);
     color: var(--color-text-muted);
     font-size: var(--text-sm);
-    font-family: var(--font-body);
     border-top: 1px solid var(--color-divider);
-    margin-top: auto; /* Push to bottom */
     opacity: 0.7;
     transition: opacity 0.2s ease;
-
-    svg {
-      width: 16px;
-      height: 16px;
+    .icon {
+      align-self: flex-end;
+      // justify-self: center;
     }
-
     .exp-card--compact:hover & {
+    
       opacity: 1;
     }
   }
+
 }
 </style>

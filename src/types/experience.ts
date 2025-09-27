@@ -4,6 +4,7 @@ export type WorkExperienceData = ExperienceBase & {
   company: string
   role: string
   location: string
+  brandColors?: string[]
 }
 
 export type ProjectData = ExperienceBase & {
