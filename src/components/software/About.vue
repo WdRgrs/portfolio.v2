@@ -13,7 +13,7 @@
           @click="toggleTldr"
           aria-label="Toggle summary view"
         >
-          <span>TL:DR</span>
+          <span>TL;DR</span>
           <span>:)</span>
         </button>
       </div>
