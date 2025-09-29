@@ -11,4 +11,10 @@ const app = createApp(App)
 app.use(createPinia())
 app.use(router)
 
+const redir = sessionStorage.redirect;
+if (redir) {
+  sessionStorage.removeItem('redirect');
+  router.replace(redir);
+}
+
 app.mount('#app')

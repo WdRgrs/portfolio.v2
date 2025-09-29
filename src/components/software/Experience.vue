@@ -70,7 +70,6 @@ import PageSection from '@/components/page/Section.vue'
 import ExperienceCard from '@/components/software/ExperienceCard.vue'
 import Resume from '@/components/software/Resume.vue'
 import { WORK_EXPERIENCE } from '@/constants'
-import Terminal from './Terminal.vue'
 
 const jobs = WORK_EXPERIENCE
 
