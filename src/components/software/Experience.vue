@@ -8,7 +8,9 @@
       <!-- Bottom layer: Full width code blocks -->
       <div class="experience__layer experience__layer--code">
         <div class="experience__stream" @mouseenter="pauseAll" @mouseleave="resumeAll">
+
           <div ref="codeTrackRef" class="experience__track" :class="{'experience__track--paused': isPaused}">
+
             <div
               v-for="(job, i) in duplicatedJobs"
               :key="`code-${job.company}-${i}`"
@@ -40,11 +42,6 @@
         </div>
       </div>
 
-      <!-- Resume -->
-      <div class="experience__resume">
-        curriculum vitae
-      </div>
-
       <!-- Expanded card Modal -->
       <Transition name="modal">
         <div v-if="selectedJob" class="experience__modal">
@@ -59,6 +56,9 @@
           </div>
         </div>
       </Transition>
+
+      <!-- Resume -->
+      <Resume class="experience__resume" />
     </div>
   </PageSection>
 </template>
@@ -68,7 +68,9 @@ import { ref, computed } from 'vue'
 import type { WorkExperienceData } from '@/types'
 import PageSection from '@/components/page/Section.vue'
 import ExperienceCard from '@/components/software/ExperienceCard.vue'
+import Resume from '@/components/software/Resume.vue'
 import { WORK_EXPERIENCE } from '@/constants'
+import Terminal from './Terminal.vue'
 
 const jobs = WORK_EXPERIENCE
 
@@ -215,12 +217,16 @@ function buildCode(): string {
     border-radius: var(--radius-lg);
     font-family: var(--font-mono);
     font-size: var(--text-xs);
-    line-height: var(--leading-normal);
+    line-height: var(--leading-loose);
     color: var(--color-text-muted);
     white-space: pre;
     overflow: hidden;
     user-select: none;
     opacity: 0.6;
+
+    @include mobile {
+      line-height: var(--leading-snug);
+    }
   }
 
   &__card {
@@ -228,18 +234,16 @@ function buildCode(): string {
     height: 100%;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+
     &:hover {
       filter: brightness(1.2);
     }
   }
 
   &__resume {
-    margin: var(--space-8);
-    span {
-      color: red;
-    }
+    margin-top: var(--space-8);
   }
-  /* Expanded card */
+ 
   &__modal {
     position: fixed;
     top: 0;
@@ -252,9 +256,10 @@ function buildCode(): string {
     align-items: center;
     backdrop-filter: blur(2px) contrast(90%) brightness(50%);
     z-index: var(--z-modal-backdrop);
-
+    touch-action: none;
 
     &__full-card {
+      overscroll-behavior: contain;
       position: relative;
       padding: var(--space-6);
       margin: var(--space-6);
@@ -329,6 +334,9 @@ function buildCode(): string {
         font-family: var(--font-fira);
         color: var(--color-text-muted);
         opacity: .8;
+        box-shadow:
+          0 0 0 1px color-mix(in oklab, var(--color-primary) 15%, transparent),
+          0 2px 4px color-mix(in oklab, var(--color-primary) 20%, transparent);
 
         &:active {
           filter: contrast(.85);

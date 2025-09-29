@@ -73,8 +73,8 @@ const theme = computed(() => {
     background: color-mix(in oklab, var(--chip-primary) 30%, transparent);
     border-color: color-mix(in oklab, var(--chip-primary) 40%, transparent);
     box-shadow:
-    0 0 0 1px color-mix(in oklab, var(--chip-primary) 15%, transparent),
-    0 2px 4px color-mix(in oklab, var(--chip-primary) 20%, transparent);
+      0 0 0 1px color-mix(in oklab, var(--chip-primary) 15%, transparent),
+      0 2px 4px color-mix(in oklab, var(--chip-primary) 20%, transparent);
   }
   
   &:focus-visible {

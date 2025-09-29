@@ -140,7 +140,6 @@ function removeNextNonHighlightedWord(paragraphIndex: number) {
 }
 
 function startGlowSequence() {
-  // Count total highlights in TL;DR phrases
   const totalHighlights = tldrPhrases.reduce((count, phrase) => {
     const matches = phrase.match(/\[([^\]]+)\]/g)
     return count + (matches ? matches.length : 0)
@@ -163,7 +162,6 @@ function startGlowSequence() {
 function processWordsForDisplay(words: string[]): string {
   return words.map(word => {
     if (word.includes('[') || word.includes(']')) {
-      // Clean up the word and wrap in highlight
       const cleanWord = word.replace(/[\[\]]/g, '')
       return `<span class="highlight">${cleanWord}</span>`
     }
@@ -173,7 +171,6 @@ function processWordsForDisplay(words: string[]): string {
 
 function processTldrForDisplay(phrase: string, paragraphIndex: number): string {
   let localIndex = 0
-  // Calculate global index offset
   let globalOffset = 0
   for (let i = 0; i < paragraphIndex; i++) {
     const matches = tldrPhrases[i].match(/\[([^\]]+)\]/g)
@@ -190,10 +187,9 @@ function processTldrForDisplay(phrase: string, paragraphIndex: number): string {
 
 const displayContent = computed(() => {
   if (showTldr.value) {
-    // Show the clean TL;DR phrases
+    // TL;DR phrases
     return tldrPhrases.map((phrase, idx) => processTldrForDisplay(phrase, idx))
   } else {
-    // Show the animating paragraphs
     return paragraphWords.value.map(words => processWordsForDisplay(words))
   }
 })
@@ -204,26 +200,15 @@ const displayContent = computed(() => {
   &__header {
     position: relative;
     // max-width: 1200px;
-    // margin: auto;
   }
 
   &__title {
-    // font-family: var(--font-fredericka);
-    // font-size: calc(var(--text-3xl) * 1.5);
-    // transition: all 0.3s ease;
-    // padding: var(--space-5);
-    // user-select: none;
     transition: all 0.3s ease;
 
     span {
       display: inline-block;
     }
 
-    @include mobile {
-      // padding-bottom: var(--space-4);
-      // text-align: center;
-    }
-    
     .slide-fade-enter-active,
     .slide-fade-leave-active {
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -293,8 +278,6 @@ const displayContent = computed(() => {
 
       &.highlight--glow {
         animation: glow 1.2s ease-in;
-        // text-shadow: 0 0 8px var(--color-accent),
-        //   0 0 12px var(--color-accent);
       }
     }
   }
