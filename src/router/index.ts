@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { LINKS, SITE_LINKS } from '@/constants'
+import { LINKS } from '@/constants'
 import Landing from '@/views/Landing.vue'
 import Developer from '@/views/Developer.vue'
 import Welding from '@/views/Welding.vue'
