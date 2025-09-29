@@ -34,10 +34,9 @@ const router = createRouter({
       component: Developer,
       name: 'development',
       meta: {
-        title: 'WR | Software Engineering',
+        title: 'WR | Software Development',
         description: 'Full-stack development portfolio featuring Vue.js, TypeScript, and real-time applications.'
       }
-
     },
     { 
       path: WELDING, 
