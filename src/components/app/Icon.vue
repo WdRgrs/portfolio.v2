@@ -13,14 +13,21 @@ import { computed } from 'vue'
 import { 
   List,
   ExternalLink,
-  ChevronDown
+  ChevronDown,
+  Lightbulb,
+  Sun,
+  Moon,
+  SunMoon,
   
 } from 'lucide-vue-next';
 
-type Icon = 'link' | 'list' | 'github' | 'linkedin' | 'instagram' | 'chevron-down'
+type BtnIcons = 'link' | 'list' | 'lightbulb' | 'chevron-down' | 'moon' | 'sun' | 'sun-moon'
+type CompanyIcons = 'github' | 'linkedin' | 'instagram'
+
+export type IconType = BtnIcons | CompanyIcons
 
 interface Props {
-  name: Icon
+  name: IconType
   color?: string
   size?: string 
   variant?: 'default' | 'muted' | 'accent' | 'primary'
@@ -51,8 +58,16 @@ const parseSize = computed(() => {
     
 const parseComponent = computed(() => {
   switch (props.name) { 
+    case 'sun-moon':
+      return SunMoon
+    case 'sun':
+      return Sun
+    case 'moon':
+      return Moon
     case 'list':
       return List
+    case 'lightbulb':
+      return Lightbulb
     case 'chevron-down':
       return ChevronDown
     case 'link':

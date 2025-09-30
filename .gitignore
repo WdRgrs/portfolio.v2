@@ -28,7 +28,11 @@ coverage
 *.sw?
 
 *.tsbuildinfo
-# package-lock.json
+
 _notes
-legacy
+_assets
+_legacy
+
 src/components/test
+
+.env

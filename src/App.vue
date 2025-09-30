@@ -5,7 +5,6 @@
     </header>
 
     <main class="app__main" :class="{ 'app__main--landing': isLanding }">
-      <ThemeToggle />
 
       <RouterView v-slot="{ Component, route }">
           <component :is="Component" :key="route.path" />
@@ -23,7 +22,6 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router'
 
 import NavBar from '@/components/app/NavBar.vue'
-import ThemeToggle from './components/app/ThemeToggle.vue';
 import Footer from '@/components/page/Footer.vue'
 import { LINKS } from '@/constants';
 

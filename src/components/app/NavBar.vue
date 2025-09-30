@@ -11,15 +11,29 @@
 
       <!-- Desktop Navigation -->
       <div class="navbar__nav">
-        <router-link v-for="link in navLinks" :key="link.path" :to="link.path" class="navbar__link"
-          active-class="navbar__link--active">
+        <router-link 
+          v-for="link in navLinks" 
+          :key="link.path" 
+          :to="link.path" 
+          class="navbar__link"
+          active-class="navbar__link--active"
+        >
           {{ link.label }}
         </router-link>
+        
+        <!-- Theme toggle for desktop/tablet -->
+        <div class="navbar__theme-wrapper">
+          <ThemeToggle />
+        </div>
       </div>
 
       <!-- Mobile Menu Toggle -->
-      <button class="navbar__toggle" @click="toggleMobileMenu" :aria-expanded="isMobileMenuOpen"
-        aria-label="Toggle navigation menu">
+      <button 
+        class="navbar__toggle" 
+        @click="toggleMobileMenu" 
+        :aria-expanded="isMobileMenuOpen"
+        aria-label="Toggle navigation menu"
+      >
         <span class="navbar__toggle-line"></span>
         <span class="navbar__toggle-line"></span>
         <span class="navbar__toggle-line"></span>
@@ -28,10 +42,21 @@
 
     <!-- Mobile Navigation -->
     <div class="navbar__mobile" v-show="isMobileMenuOpen">
-      <router-link v-for="link in navLinks" :key="`mobile-${link.path}`" :to="link.path" class="navbar__mobile-link"
-        active-class="navbar__mobile-link--active" @click="closeMobileMenu">
+      <router-link 
+        v-for="link in navLinks" 
+        :key="`mobile-${link.path}`" 
+        :to="link.path" 
+        class="navbar__mobile-link"
+        active-class="navbar__mobile-link--active" 
+        @click="closeMobileMenu"
+      >
         {{ link.label }}
       </router-link>
+      
+      <!-- Theme toggle for mobile -->
+      <div class="navbar__mobile-theme">
+        <ThemeToggle />
+      </div>
     </div>
   </nav>
 </template>
@@ -39,6 +64,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { LINKS, SITE_LINKS } from '@/constants'
+import ThemeToggle from '@/components/app/ThemeToggle.vue'
 
 interface NavLink {
   path: string
@@ -99,11 +125,18 @@ const closeMobileMenu = () => {
 
   &__nav {
     display: flex;
+    align-items: center;
     gap: var(--space-6);
 
     @include mobile {
       display: none;
     }
+  }
+
+  &__theme-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: var(--space-2);
   }
 
   &__link {
@@ -114,6 +147,7 @@ const closeMobileMenu = () => {
     padding: var(--space-2) var(--space-3);
     border-radius: var(--radius-sm);
     transition: all 0.2s ease;
+    
     @include tablet {
       padding: var(--space-1);
     }
@@ -195,6 +229,14 @@ const closeMobileMenu = () => {
       color: var(--color-primary);
       background: var(--color-surface-3);
     }
+  }
+
+  &__mobile-theme {
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    justify-content: center;
   }
 }
 </style>
