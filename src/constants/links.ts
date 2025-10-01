@@ -3,7 +3,7 @@ import type { LocalLink, ExternalLink } from "@/types"
 export const LINKS = {
   SITE: {
     LANDING: '/',
-    DEVELOPMENT: '/software',
+    SOFTWARE: '/software',
     WELDING: '/welding',
     PHOTOGRAPHY: '/photography',
     DEV_LOG: '/dev-log',
@@ -37,9 +37,9 @@ export const LINKS = {
 
 export const SITE_LINKS: ReadonlyArray<LocalLink> = [
   { key: 'landing', label: 'Landing', path: LINKS.SITE.LANDING },
-  { key: 'developer', label: 'Developer', path: LINKS.SITE.DEVELOPMENT, main: true },
-  { key: 'welding', label: 'Welder', path: LINKS.SITE.WELDING, main: true },
-  { key: 'photography', label: 'Photographer', path: LINKS.SITE.PHOTOGRAPHY, main: true },
+  { key: 'developer', label: 'Software', path: LINKS.SITE.SOFTWARE, main: true },
+  { key: 'welding', label: 'Welding', path: LINKS.SITE.WELDING, main: true },
+  { key: 'photography', label: 'Photography', path: LINKS.SITE.PHOTOGRAPHY, main: true },
   { key: 'dev_log', label: 'Dev Log', path: LINKS.SITE.DEV_LOG },
   { key: 'resume', label: 'Resume', path: LINKS.SITE.RESUME },
   { key: 'not_found', label: 'Not Found', path: LINKS.SITE.NOT_FOUND },

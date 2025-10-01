@@ -93,9 +93,10 @@ const closeMobileMenu = () => {
   right: 0;
   top: 0;
   z-index: var(--z-sticky);
-  background: var(--color-bg);
+  // background: var(--color-bg);
+  // background-color: transparent;
   border-bottom: 1px solid var(--color-border);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(1rem);
 
   &__container {
     max-width: var(--max-width);

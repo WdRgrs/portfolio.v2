@@ -10,7 +10,7 @@ import NotFound from '@/views/NotFound.vue'
 
 const { 
   LANDING,
-  DEVELOPMENT,
+  SOFTWARE,
   WELDING,
   PHOTOGRAPHY,
   DEV_LOG,
@@ -30,12 +30,12 @@ const router = createRouter({
       }
     },
     { 
-      path: DEVELOPMENT, 
+      path: SOFTWARE, 
       component: Developer,
-      name: 'development',
+      name: 'software',
       meta: {
-        title: 'WR | Software Development',
-        description: 'Full-stack development portfolio featuring Vue.js, TypeScript, and real-time applications.'
+        title: 'WR | Software',
+        description: 'Full-stack software development portfolio featuring Vue.js, TypeScript, and real-time applications.'
       }
     },
     { 

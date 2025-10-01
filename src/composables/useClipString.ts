@@ -1,5 +1,5 @@
 import { computed, type Ref } from 'vue'
-import { clipString } from '@/utils/text'
+import { clipString } from '@/utils/format'
 
 export const useClipString = (text: Ref<string> | string, maxLength: number = 50) => {
   return computed(() => {
