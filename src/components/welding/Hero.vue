@@ -87,6 +87,7 @@ const handleImageLoad = () => {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: calc(var(--nav-bar-height) * -1);  // ? Temp
 
   &__image-container {
     position: absolute;
