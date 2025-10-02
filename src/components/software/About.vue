@@ -5,8 +5,6 @@
         <Transition name="slide-fade" mode="out-in">
           <span :key="isTldr.toString()">{{ isTldr ? 'I am ..' : 'About' }}</span>
         </Transition>
-      </h2>
-      <div class="about__controls">
         <button 
           class="btn" 
           :class="{ 'btn--active': isTldr }" 
@@ -16,7 +14,7 @@
           <span>TL;DR</span>
           <span>:)</span>
         </button>
-      </div>
+      </h2>
     </template>
 
     <div class="about__content" :class="{ 'about__content--active': isTldr }">
@@ -201,13 +199,11 @@ const displayContent = computed(() => {
 
 <style scoped lang="scss">
 .about {
-  &__header {
-    position: relative;
-    // max-width: 1200px;
-  }
-
   &__title {
-    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
     span {
       display: inline-block;
     }
@@ -244,8 +240,6 @@ const displayContent = computed(() => {
       }
 
       @include mobile {
-        height: 60dvh;
-        overflow: hidden;
         width: fit-content;
         margin: auto;
         & p {
@@ -258,95 +252,77 @@ const displayContent = computed(() => {
       font-family: var(--font-body);
       font-size: var(--text-lg);
       line-height: var(--leading-body);
-      color: var(--color-text-secondary);
+      color: var(--color-text-muted);
+      font-weight: var(--font-light);
       margin-bottom: var(--space-4);
       min-height: 1.5em;
       transition: opacity 0.3s ease;
 
       @include mobile {
-        font-size: var(--text-sm);
-        line-height: var(--leading-relaxed);
-      }
-
-      &:last-child {
-        margin-bottom: 0;
+        font-size: var(--text-lg);
       }
     }
 
     :deep(.highlight) {
       font-weight: var(--font-semibold);
-      color: var(--color-accent);
+      color: var(--color-info);
       transition: all 0.3s ease;
-      display: inline-block;
 
       &.highlight--glow {
         animation: glow 1.2s ease-in;
       }
     }
   }
-
-  &__controls {
+  
+  .btn {
     perspective: 100cm;
-    position: absolute;
-    right: 0;
-    top: var(--space-8);
+    display: inline;
+    background-color: transparent;
+    border: transparent;
+    width: 100px;
+    height: 40px;
+    user-select: none;
+    font-family: var(--font-fira);
+    font-size: var(--text-lg);
+    
+    @include mobile {
+      transform: scale(var(--scale));
+      font-size: var(--text-xl);
+    }
 
-    .btn {
-      display: block;
+    span {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0; 
+      color: var(--color-text-secondary);
       background-color: transparent;
-      border: transparent;
-      width: 80px;
-      height: 30px;
-      cursor: sw-resize;
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
-      font-family: var(--font-fira);
-      font-size: var(--text-lg);
-      font-weight: var(--font-medium);
+      box-shadow: inset 0px 0px 0px 2px var(--color-info);
+      border-radius: var(--radius-md);
+      transform-origin: 50% 50% -20px;
+      transition: all .4s;
+    }
+    
+    span:nth-child(1) {
+      transform: rotateX(0deg);
+    }
+    
+    span:nth-child(2) {
+      transform: rotateX(90deg);
+      box-shadow: inset 0px 0px 0px 2px var(--color-text-secondary);
+      background-color: var(--color-surface-1);
+    }
 
-      &--active {
-        cursor:col-resize;
-      }
-      
-      @include mobile {
-        transform: scale(var(--scale));
-        font-size: var(--text-xl);
-      }
+    &.btn--active span:nth-child(1) {
+      transform: rotateX(-90deg);
+    }
 
-      span {
-        color: var(--color-accent);
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        box-shadow: var(--box-shadow-in);
-        border-radius: var(--radius-sm);
-        transition: all .4s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      span:nth-child(2) {
-        transform: rotateX(90deg);
-        transform-origin: 50% 50% -15px;
-        background-color: var(--color-surface-1);
-      }
-
-      span:nth-child(1) {
-        background-color: var(--color-surface-2);
-        transform: rotateX(0deg);
-        transform-origin: 50% 50% -15px;
-      }
-
-      &.btn--active span:nth-child(2) {
-        transform: rotateX(0deg);
-      }
-
-      &.btn--active span:nth-child(1) {
-        transform: rotateX(-90deg);
-      }
+    &.btn--active span:nth-child(2) {
+      transform: rotateX(0deg);
     }
   }
 }

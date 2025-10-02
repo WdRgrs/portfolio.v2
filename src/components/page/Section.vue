@@ -35,30 +35,24 @@ onMounted(() => {
 .page-section {
   max-width: 100dvw;
   margin: 0 auto;
-  // border: 1px solid rgba(220, 100, 100, .6);
-  
-  @include mobile {
-    
-  }
   
   &__container {
-    margin: var(--space-5);
-    // border: 1px solid rgba(220, 100, 100, .6);
+    margin: var(--space-6);
   }
   
   &__header {
-    // border: 1px solid rgba(220, 100, 100, .6);
-    margin: var(--space-6) auto;
     position: relative;
+    margin: var(--space-7) auto;
+    margin: var(--space-7) auto var(--space-4);
     max-width: 1200px;
-    
+    color: var(--color-text-muted);
     font-family: var(--font-fredericka);
-    font-size: calc(var(--text-3xl) * 1.5);
+    font-size: calc(var(--text-3xl) * 2);
     padding: var(--space-5);
     user-select: none;
     
     @include mobile {
-      margin: var(--space-4) auto;
+      font-size: calc(var(--text-3xl) * 1.5);
     }
   }
 }

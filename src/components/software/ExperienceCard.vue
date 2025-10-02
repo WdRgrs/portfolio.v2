@@ -155,7 +155,6 @@ function handleAction() {
 
   &--full {
     border: none;
-
     @include mobile {
       padding: var(--space-3);
     }
@@ -280,13 +279,12 @@ function handleAction() {
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
-    // border-bottom: 1px solid var(--color-divider);
 
     li {
       font-family: var(--font-body);
       font-size: var(--text-base);
       line-height: var(--leading-relaxed);
-      color: var(--color-text-secondary);
+      color: var(--color-text-muted);
       padding-left: var(--space-5);
       position: relative;
 
