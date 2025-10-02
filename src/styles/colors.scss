@@ -2,31 +2,31 @@
   color-scheme: light dark;
 
   /* Background & Surface */
-  --color-bg:           light-dark(#faf8f6, #0a1628);        /* off-white / deeper navy */
-  --color-surface-1:    light-dark(#f0ede9, #162838);        /* warm linen / slate navy */
-  --color-surface-2:    light-dark(#e3ddd6, #1f3a4f);        /* sand / muted ocean */
-  --color-surface-3:    light-dark(#d1c9bf, #2a4d66);        /* deeper sand / steel blue */
-  --color-border:       light-dark(#b8b0a5, #3d5a73);        /* taupe / desaturated teal */
+  --color-bg:           light-dark(#faf8f6, #0a1628);
+  --color-surface-1:    light-dark(#f0ede9, #162838);
+  --color-surface-2:    light-dark(#e3ddd6, #1f3a4f);
+  --color-surface-3:    light-dark(#d1c9bf, #2a4d66);
+  --color-border:       light-dark(#b8b0a5, #3d5a73);
 
   /* Text */
-  --color-text:         light-dark(#1a2e3b, #d4e4ed);        /* deep ocean / soft ice */
-  --color-text-secondary: light-dark(#2f4858, #a8c5d6);      /* slate blue / muted sky */
-  --color-text-muted:   light-dark(#5f7381, #7a9ab0);        /* storm grey / steel */
-  --color-text-inverse: light-dark(#ffffff, #0a1628);        /* white / deep navy */
-  --color-text-accent:  light-dark(#4a7a7c, #6dbaaa);        /* deep teal / soft aqua */
+  --color-text:         light-dark(#1a2e3b, #d4e4ed);
+  --color-text-secondary: light-dark(#2f4858, #a8c5d6);
+  --color-text-muted:   light-dark(#5f7381, #7a9ab0);
+  --color-text-inverse: light-dark(#ffffff, #0a1628);
+  --color-text-accent:  light-dark(#4a7a7c, #6dbaaa);
 
   /* Semantic Roles */
-  --color-primary:      light-dark(#4a7c7d, #6dbaaa);        /* darker teal / soft aqua */
-  --color-secondary:    light-dark(#6faca9, #81c4b5);        /* sea foam / muted mint */
-  --color-accent:       light-dark(#89c4b8, #95cfc2);        /* light mint / gentle mint */
-  --color-info:         light-dark(#5b7ba8, #7396bf);        /* periwinkle / soft blue */
-  --color-success:      light-dark(#6b9d93, #7db5a8);        /* sage / muted success */
-  --color-warning:      light-dark(#c9956b, #d4a574);        /* amber / soft gold */
-  --color-error:        light-dark(#b86b5c, #d17b6f);        /* clay / muted coral */
+  --color-primary:      light-dark(#4a7c7d, #6dbaaa);
+  --color-secondary:    light-dark(#6faca9, #81c4b5);
+  --color-accent:       light-dark(#89c4b8, #95cfc2);
+  --color-info:         light-dark(#5b7ba8, #7396bf);
+  --color-success:      light-dark(#6b9d93, #7db5a8);
+  --color-warning:      light-dark(#c9956b, #d4a574);
+  --color-error:        light-dark(#b86b5c, #d17b6f);
 
   /* Overlay / Utility */
   --color-overlay:      light-dark(rgba(26,46,59,0.35), rgba(10,22,40,0.75));
-  --color-divider:      light-dark(#d4cec3, #2a4d66);        /* soft divider / steel */
+  --color-divider:      light-dark(#d4cec3, #2a4d66);
   --color-shadow:       light-dark(rgba(26,46,59,0.12), rgba(0,0,0,0.5));
 }
 
