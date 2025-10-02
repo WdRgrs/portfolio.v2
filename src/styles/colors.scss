@@ -1,33 +1,36 @@
 :root {
   color-scheme: light dark;
 
-  /* Background & Surface */
-  --color-bg:           light-dark(#ffffff, #0b0e14);
-  --color-surface-1:    light-dark(#f9f9f9, #1a1d23);
-  --color-surface-2:    light-dark(#f0f0f0, #242830);
-  --color-surface-3:    light-dark(#e0e0e0, #2e323c);
-  --color-border:       light-dark(#d4d4d4, #3f444d);
+  /* Background & Surface - Using the lighter, cleaner palette */
+  --color-bg:           light-dark(#faf8f6, #0b0e14);        /* off-white with warmth */
+  --color-surface-1:    light-dark(#f0ede9, #1a1d23);        /* warm linen */
+  --color-surface-2:    light-dark(#e3ddd6, #242830);        /* sand */
+  --color-surface-3:    light-dark(#d1c9bf, #2e323c);        /* deeper sand */
+  --color-border:       light-dark(#b8b0a5, #3f444d);        /* taupe border */
 
-  /* Text */
-  --color-text:         light-dark(#111111, #e2e8f0);
-  --color-text-secondary: light-dark(#444444, #cbd5e1);
-  --color-text-muted:   light-dark(#6b6b6b, #94a3b8);
+  /* Text - Darker ocean palette for better contrast */
+  --color-text:         light-dark(#1a2e3b, #e2e8f0);        /* deep ocean */
+  --color-text-secondary: light-dark(#2f4858, #cbd5e1);      /* slate blue */
+  --color-text-muted:   light-dark(#5f7381, #94a3b8);        /* storm grey */
   --color-text-inverse: light-dark(#ffffff, #111111);
-  --color-text-accent:  light-dark(#595e65, #595e65);
+  --color-text-accent:  light-dark(#4a7a7c, #595e65);        /* deep teal */
 
-  /* Semantic Roles */
-  --color-primary:      light-dark(#555555, #7ca4ff);
-  --color-secondary:    light-dark(#777777, #a78bfa);
-  --color-accent:       light-dark(#999999, #f472b6);
-  --color-info:         light-dark(#2371de, #8ab4ff);
-  --color-success:      light-dark(#22c55e, #34d399);
-  --color-warning:      light-dark(#eab308, #f7d24c);
-  --color-error:        light-dark(#dc2626, #f87171);
+  /* Semantic Roles - Mix of both palettes */
+  --color-primary:      light-dark(#4a7c7d, #7ca4ff);        /* darker teal (first palette) */
+  --color-secondary:    light-dark(#6faca9, #a78bfa);        /* sea foam teal (first palette) */
+  --color-accent:       light-dark(#89c4b8, #f472b6);        /* light mint teal (first palette) */
+  --color-info:         light-dark(#5a8f8c, #8ab4ff);        /* mineral teal (second palette) */
+  --color-info:         light-dark(#4a6fa5, #8ab4ff);        /* slate blue */
+  --color-info:         light-dark(#5b7ba8, #8ab4ff);        /* periwinkle blue */
+
+  --color-success:      light-dark(#6b9d93, #34d399);        /* sage success (second palette) */
+  --color-warning:      light-dark(#c9956b, #f7d24c);        /* amber warning (second palette) */
+  --color-error:        light-dark(#b86b5c, #f87171);        /* clay error (second palette) */
 
   /* Overlay / Utility */
-  --color-overlay:      light-dark(rgba(0,0,0,0.4), rgba(0,0,0,0.5));
-  --color-divider:      light-dark(#e5e5e5, #2a2f36);
-  --color-shadow:       light-dark(rgba(0,0,0,0.1), rgba(0,0,0,0.6));
+  --color-overlay:      light-dark(rgba(26,46,59,0.35), rgba(0,0,0,0.5));
+  --color-divider:      light-dark(#d4cec3, #2a2f36);        /* soft divider */
+  --color-shadow:       light-dark(rgba(26,46,59,0.12), rgba(0,0,0,0.6));
 }
 
 /* Manual overrides handled by toggle */

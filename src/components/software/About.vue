@@ -34,9 +34,9 @@ import PageSection from '@/components/page/Section.vue'
 const isTldr = ref(false)
 
 const paragraphSources = [
-  `Hi! I'm Wade, [passionate] about building and fueled by a [curious] tic to understand how and why things work.`,
+  `Hi! I'm Wade, [passionate] about building |things| and fueled by a [curious] tic to understand how and why they work.`,
   
-  `My tech story began as a [PC enthusiast] in the 56k dial-up era, when 128MB of RAM was luxurious and "your system is running low on virtual memory" was a daily notification. 
+  `My tech story begins as a [PC enthusiast] in the 56k dial-up era, when 128MB of RAM was luxurious and "your system is running low on virtual memory" was a daily notification. 
   This early fascination led me to build PCs and eventually to code, turning curiosity into a career.`,
   
   `Professionally, I work full-stack but gravitate toward the frontend, a medium for expression as much as a technology. 
@@ -165,6 +165,10 @@ function processWordsForDisplay(words: string[]): string {
       const cleanWord = word.replace(/[\[\]]/g, '')
       return `<span class="highlight">${cleanWord}</span>`
     }
+    if (word.includes('|')) {
+      const cleanWord = word.replace(/[\|]/g, '')
+      return `<span style="font-style: italic;">${cleanWord}</span>`
+    }
     return word
   }).join(' ')
 }
@@ -204,7 +208,6 @@ const displayContent = computed(() => {
 
   &__title {
     transition: all 0.3s ease;
-
     span {
       display: inline-block;
     }
