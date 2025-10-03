@@ -86,6 +86,8 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .photo-hero {
+  color-scheme: light;
+
   position: relative;
   width: 100%;
   margin-top: calc(var(--nav-bar-height) * -1);

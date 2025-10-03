@@ -226,12 +226,12 @@ const displayContent = computed(() => {
 
   &__content {
     user-select: none;
-    max-width: 1000px;
     margin: 0 auto;
+    max-width: var(--max-content-width);
     padding: 0 var(--space-8);
     
     @include mobile {
-      padding: 0;
+      padding: 0 var(--space-4);
     }
 
     &--active {

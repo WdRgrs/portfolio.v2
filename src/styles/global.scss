@@ -12,6 +12,16 @@
     @include laptop {
       --max-width: 100vw;
     }
+    --max-content-width: 1000px;
+    @include mobile {
+      --max-content-width: 100vw;
+    }
+    @include tablet {
+      --max-content-width: 100vw;
+    }
+    @include laptop {
+      --max-content-width: 100vw;
+    }
     
     // Border radius
     --radius-sm: 4px;

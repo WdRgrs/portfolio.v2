@@ -37,7 +37,7 @@ export const LINKS = {
 
 export const SITE_LINKS: ReadonlyArray<LocalLink> = [
   { key: 'landing', label: 'Landing', path: LINKS.SITE.LANDING },
-  { key: 'developer', label: 'Software', path: LINKS.SITE.SOFTWARE, main: true },
+  { key: 'software', label: 'Software', path: LINKS.SITE.SOFTWARE, main: true },
   { key: 'welding', label: 'Welding', path: LINKS.SITE.WELDING, main: true },
   { key: 'photography', label: 'Photography', path: LINKS.SITE.PHOTOGRAPHY, main: true },
   { key: 'dev_log', label: 'Dev Log', path: LINKS.SITE.DEV_LOG },

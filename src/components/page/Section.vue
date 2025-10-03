@@ -37,22 +37,27 @@ onMounted(() => {
   margin: 0 auto;
   
   &__container {
-    margin: var(--space-6);
+    margin: 0 var(--space-6);
+    
+    @include mobile {
+      margin: var(--space-4);
+    }
   }
   
   &__header {
     position: relative;
-    margin: var(--space-7) auto;
-    margin: var(--space-7) auto var(--space-4);
     max-width: 1200px;
+    margin : auto;
+    margin: var(--space-7) auto var(--space-6);
+    padding: var(--space-5);
     color: var(--color-text-muted);
     font-family: var(--font-fredericka);
     font-size: calc(var(--text-3xl) * 2);
-    padding: var(--space-5);
     user-select: none;
     
     @include mobile {
       font-size: calc(var(--text-3xl) * 1.5);
+      margin-bottom: var(--space-5);
     }
   }
 }

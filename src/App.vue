@@ -5,9 +5,8 @@
     </header>
 
     <main class="app__main" :class="{ 'app__main--landing': isLanding }">
-
       <RouterView v-slot="{ Component, route }">
-          <component :is="Component" :key="route.path" />
+        <component :is="Component" :key="route.path" />
       </RouterView>
     </main>
 
@@ -35,16 +34,13 @@ const isLanding = computed(() => {
 <style scoped lang="scss">
 .app {
   height: 100dvh;
-  position: relative;
+  overflow-y: auto;
 
   &__navbar {
     height: var(--nav-bar-height);
   }
 
   &__main {
-    position: relative;
-    min-height: calc(100% - var(--nav-bar-height));
-
     &--landing {
       position: fixed;
       top: var(--nav-bar-height);

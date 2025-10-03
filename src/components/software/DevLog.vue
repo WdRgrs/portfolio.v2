@@ -282,7 +282,6 @@ function getContentComponent(contentType?: string) {
 
 function viewFullEntry(entry: DevLogEntry) {
   // Implement full view logic - could be modal, route, or external link
-  console.log('Viewing full entry:', entry.id)
 }
 
 function loadMore() {
@@ -343,8 +342,9 @@ function loadMore() {
   }
 
   &__container {
-    max-width: 1000px;
+    // border: 1px solid red;
     margin: 0 auto;
+    max-width: var(--max-content-width);
     padding: 0 var(--space-6);
 
     @include mobile {

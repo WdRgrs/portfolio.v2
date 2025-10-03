@@ -1,19 +1,9 @@
 <template>
   <div class="software">
     <div class="software__container">
-
-      <!-- <div class="scroll">
-        <div class="scroll__container">
-          Quick Scroll
-        </div>
-      </div> -->
-
-
       <About />
       <div class="software__border-break" />
-      
       <Experience />
-
       <div class="software__border-break" />
       <DevLog />
     </div>
@@ -36,12 +26,13 @@ import DevLog from '@/components/software/DevLog.vue';
   }
 
   &__border-break {
-    // height: 1px;
-    // background-image: linear-gradient(90deg, transparent, var(--color-surface-1), var(--color-secondary), var(--color-surface-1), transparent);
+    height: 1px;
+    background-image: linear-gradient(90deg, transparent, var(--color-surface-2), transparent);
+    margin: var(--space-9);
     // margin: var(--space-8);
-    height: 50px;
-    border-bottom: 1px solid var(--color-surface-2);
-    box-shadow: 0 20px 20px -20px var(--color-surface-1);;
+    // height: 50px;
+    // border-bottom: 1px solid var(--color-surface-2);
+    // box-shadow: 0 20px 20px -20px var(--color-surface-1);;
     
   }
 }
@@ -50,9 +41,7 @@ import DevLog from '@/components/software/DevLog.vue';
   position: fixed;
   padding: var(--space-4);
   transform: translate(0, 500%);
-  border: 1px solid rgba(120,  20, 39, .2);
   &__container {
-    border: 1px solid rgba(20,  220, 239, .5);
   }
 
   @include laptop {

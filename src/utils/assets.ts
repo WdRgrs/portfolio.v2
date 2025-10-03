@@ -1,6 +1,6 @@
 export const getAssetUrl = (path: string): string => {
   const baseUrl = import.meta.env.VITE_ASSET_BASE_URL || 'assets'
-  console.log(`${baseUrl}/${path}`)
+  
   return `${baseUrl}/${path}`
 }
 

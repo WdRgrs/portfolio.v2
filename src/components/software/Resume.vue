@@ -1,7 +1,7 @@
 <template>
   <div class="resume-section">
     Curriculum Vitae
-    <button class="btn btn-accent btn-glow " @click="handlePreview">{{ btnText }}</button>
+    <button class="btn btn-accent btn-glow" @click="handlePreview">{{ btnText }}</button>
     
     <div v-if="showPreview" class="resume-modal" @click.self="closePreview">
       <div class="resume-modal__container">
